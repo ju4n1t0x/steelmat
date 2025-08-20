@@ -1,0 +1,35 @@
+---
+const { tittle, description } = Astro.props;
+import NavBar from "@/components/navBar.astro";
+import Footer from "@/components/footer.astro";
+import "../styles/global.css";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{tittle}</title>
+  </head>
+  <body>
+    <header>
+      <NavBar
+        title="barra-de-navegacion"
+        description="barra de navegacion del sitio"
+      />
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+
+    <script>
+      import "flowbite";
+    </script>
+  </body>
+</html>
