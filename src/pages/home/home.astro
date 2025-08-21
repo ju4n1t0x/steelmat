@@ -1,5 +1,7 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
+import Hero from "@/components/homeComponents/hero.astro";
+
 import InformacionSeccion from "@/components/homeComponents/informacion.astro";
 import Habitat from "@/components/homeComponents/habitat.astro";
 import ProyectosAMedida from "@/components/homeComponents/proyectosAMedida.astro";
@@ -10,14 +12,7 @@ import ConsultoriaAProfesionales from "@/components/homeComponents/consultoriaPr
   title="SteelMat - Steel Home"
   description="SteelMat es una aplicación web para la gestión de proyectos de construcción, enfocada en el cálculo y optimización de estructuras de acero."
 >
-  <section class="relative w-full h-screen">
-    <img
-      src="/public/imagenes/heroHome.jpg"
-      alt="Hero Image"
-      class="w-full h-full object-cover"
-    />
-  </section>
-
+  <Hero />
   <InformacionSeccion />
   <Habitat />
   <ProyectosAMedida />

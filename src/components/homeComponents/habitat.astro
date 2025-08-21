@@ -3,7 +3,7 @@
 ---
 
 <section class="w-full h-full flex py-10 px-40 p justify-between">
-  <article class="flex flex-col p-15 pl-20">
+  <article class="flex flex-col p-10">
     <h2 class="text-[#545151] text-5xl font-bold text-left pb-15">Habitat</h2>
     <p class="text-lg p-2 leading-[1.7]">
       Descubrí nuestros <strong>modelos de viviendas <br />prediseñados</strong>
@@ -11,19 +11,17 @@
       />con estructura de Steel Frame. <br /> Diseños modernos, sustentables y listos
       <br />para habitar en tiempos récord.
     </p>
-    <a href="" class="py-20 hover:underline text-[#545151]">
+    <a href="" class="flex py-20 hover:underline text-[#545151]">
       Descubrir más
-      <img
-        src="/icons/flecha.svg"
-        alt="flecha"
-        class="w-6 h-6 inline-block ml-2"
-      />
+      <svg class="w-6 h-6 ml-2">
+        <use href="/icons/sprite.svg#flecha-icon"></use>
+      </svg>
     </a>
   </article>
   <aside>
     <div
       id="controls-carousel"
-      class="relative w-[700px] h-[500px]"
+      class="relative w-[800px] h-[500px]"
       data-carousel="static"
     >
       <!-- Carousel wrapper -->
@@ -34,7 +32,7 @@
           data-carousel-item="active"
         >
           <img
-            src="/public/imagenes/carrouselHome/carrousel1.webp"
+            src="/public/imagenes/home/carrouselHome/carrousel1.webp"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />
