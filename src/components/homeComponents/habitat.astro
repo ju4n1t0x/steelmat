@@ -20,30 +20,30 @@
   </article>
   <aside>
     <div
-      id="controls-carousel"
-      class="relative w-[800px] h-[500px]"
+      id="default-carousel"
+      class="relative"
       data-carousel="static"
+      data-carousel-interval="3000"
     >
       <!-- Carousel wrapper -->
-      <div class="relative h-full overflow-hidden rounded-lg">
+      <div
+        class="relative w-[800px] h-[500px] overflow-hidden rounded-lg md:h-96"
+      >
         <!-- Item 1 -->
         <div
           class="hidden duration-700 ease-in-out"
           data-carousel-item="active"
         >
           <img
-            src="/public/imagenes/home/carrouselHome/carrousel1.webp"
+            src="/imagenes/home/carrouselHome/carrousel1.webp"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />
         </div>
         <!-- Item 2 -->
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item="active"
-        >
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
-            src="/public/imagenes/carrouselHome/carrousel2.webp"
+            src="/imagenes/home/carrouselHome/carrousel2.webp"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />
@@ -51,12 +51,13 @@
         <!-- Item 3 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
           <img
-            src="/public/imagenes/carrouselHome/carrousel3.webp"
+            src="/imagenes/home/carrouselHome/carrousel3.webp"
             class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             alt="..."
           />
         </div>
       </div>
+
       <!-- Slider controls -->
       <button
         type="button"

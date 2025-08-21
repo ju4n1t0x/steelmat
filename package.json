@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:styles": "pnpx @tailwindcss/cli -i ./ipunt.css -o ./assets/output.css --watch"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
