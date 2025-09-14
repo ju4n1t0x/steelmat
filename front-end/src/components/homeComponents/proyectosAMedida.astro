@@ -1,0 +1,24 @@
+---
+import DescubrirMas from "./descubrirMas.astro";
+import VideoProyectosAMedida from "@/components/homeComponents/videoProyectos.astro";
+---
+
+<section class="w-full h-full flex py-10 px-40 p justify-between">
+  <article class="flex flex-col p-10">
+    <h2 class="text-[#545151] text-5xl font-bold text-left pb-15">
+      Proyectos a medida
+    </h2>
+    <p class="text-lg p-2 pb-10 leading-[1.7]">
+      <strong>¿Tenés un proyecto único en mente?</strong><br />
+      Nosotros podemos hacerlo realidad. <br />
+      Adaptamos cada construcción a tus <br />
+      necesidades, garantizando eficiencia, <br />
+      calidad y diseño a medida.
+    </p>
+    <DescubrirMas />
+  </article>
+
+  <aside class="relative w-[900px] h-[500px]">
+    <VideoProyectosAMedida />
+  </aside>
+</section>

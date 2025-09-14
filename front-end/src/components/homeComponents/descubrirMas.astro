@@ -1,0 +1,17 @@
+---
+// Define la interface para las props
+interface Props {
+  class?: string;
+  color?: string;
+}
+
+// Destructura las props
+const { class: className, color = "text-[#545151]" } = Astro.props;
+---
+
+<a href="" class:list={[color, "flex hover:underline", className]}>
+  Descubrir más
+  <svg class:list={["w-6 h-6 inline-block ml-2", className]}>
+    <use href="/icons/sprite.svg#flecha-icon"></use>
+  </svg>
+</a>
