@@ -1,0 +1,51 @@
+---
+import { Image } from "astro:assets";
+import ComoPodemosColaborarImage from "@/assets/consultoria-profesionales/como-podemos-colaborar.webp";
+---
+
+<section class="w-full h-full flex pt-20 pb-20 px-40 justify-between">
+  <article class="flex flex-col p-10 gap-5">
+    <div class="flex items-start flex-col leading-[1.7] gap-2">
+      <h2 class="text-3xl pl-5 text-gray-600">
+        ¿Cómo podemos <br />colaborar?
+      </h2>
+    </div>
+
+    <div>
+      <p class="text-lg pt-5 pl-5 leading-[1.7]">
+        En SteelMat, transformamos tus proyectos <br />
+        con SteelFrame:
+        <ul
+          class="list-disc list-inside ml-10 pl-5 py-5 leading-[1.7] space-y-7"
+        >
+          <li>
+            <strong>Cálculo estructural:</strong> Diseños <br />
+            optimizados y sin errores
+          </li>
+          <li>
+            <strong>Tecnología BIM:</strong> Visualizá cada detalle <br />
+            en 3D antes de contruir.
+          </li>
+          <li>
+            <strong>Panelizado en taller:</strong> Reducción de <br />
+            tiempos en obra.
+          </li>
+          <li>
+            <strong>Sguimiento técnico</strong> Te acompañamos <br />
+            en cada etapa del proyecto
+          </li>
+        </ul>
+      </p>
+    </div>
+  </article>
+  <aside>
+    <div class="relative w-[900px] h-[550px] rounded-lg">
+      <Image
+        src={ComoPodemosColaborarImage}
+        alt="Modalidad de terminacion"
+        loading="eager"
+        class="w-[690px] h-[573px] object-cover block mx-auto shdow-sm hover:drop-shadow-md transition-shadow duration-200 justify-self-center"
+      />
+    </div>
+  </aside>
+</section>
