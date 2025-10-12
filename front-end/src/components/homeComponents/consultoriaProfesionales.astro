@@ -1,13 +1,16 @@
 ---
 import DescubrirMas from "./descubrirMas.astro";
+import { Image } from "astro:assets";
+import ProyectosAmedida from "@/assets/home/proyectosAmedida.webp";
 ---
 
 <section class="pb-5">
   <article class="flex justify-center w-full h-full relative">
     <div class="absolute inset-0 bg-black/50"></div>
-    <img
+    <Image
+      loading="lazy"
       class="w-full h-full object-cover"
-      src="/public/imagenes/home/proyectosAmedida.webp"
+      src={ProyectosAmedida}
       alt="Proyectos a medida"
     />
     <!-- Contenedor flex para organizar el contenido verticalmente -->

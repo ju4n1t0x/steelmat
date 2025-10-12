@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import Carrousel from "../../carrouselComponents.astro";
+import QueHacemos1 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-1.webp";
+import QueHacemos2 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-2.webp";
+import QueHacemos3 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-3.webp";
+import QueHacemos4 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-4.webp";
+import QueHacemos5 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-5.webp";
+import QueHacemos6 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-6.webp";
+import QueHacemos7 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-7.webp";
+import QueHacemos8 from "@/assets/por-que-elegirnos/que-hacemos/que-hacemos-8.webp";
+
+const items = [
+  {
+    src: QueHacemos1,
+    alt: "Que hacemos 1",
+  },
+  {
+    src: QueHacemos2,
+    alt: "Que hacemos 2",
+  },
+  {
+    src: QueHacemos3,
+    alt: "Que hacemos 3",
+  },
+  {
+    src: QueHacemos4,
+    alt: "Que hacemos 4",
+  },
+  {
+    src: QueHacemos5,
+    alt: "Que hacemos 5",
+  },
+  {
+    src: QueHacemos6,
+    alt: "Que hacemos 6",
+  },
+  {
+    src: QueHacemos7,
+    alt: "Que hacemos 7",
+  },
+  {
+    src: QueHacemos8,
+    alt: "Que hacemos 8",
+  },
+];
+---
+
+<Carrousel
+  items={items}
+  outerClass="relative overflow-hidden rounded-lg mt-5"
+  containerClass="relative overflow-hidden rounded-lg"
+  width="100%"
+  aspectRatio="16/9"
+  interval={3000}
+  showControls={false}
+  initialIndex={0}
+/>

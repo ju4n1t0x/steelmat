@@ -1,0 +1,42 @@
+---
+import Carrousel from "@/components/carrouselComponents.astro";
+import ObraTerminada1 from "@/assets/por-que-elegirnos/modalidad-de-terminacion/obra-terminada.webp";
+import ObraTerminada2 from "@/assets/por-que-elegirnos/modalidad-de-terminacion/obra-terminada-2.webp";
+import ObraTerminada3 from "@/assets/por-que-elegirnos/modalidad-de-terminacion/obra-terminada-3.webp";
+import ObraTerminada4 from "@/assets/por-que-elegirnos/modalidad-de-terminacion/obra-terminada-4.webp";
+import ObraTerminada5 from "@/assets/por-que-elegirnos/modalidad-de-terminacion/obra-terminada-5.webp";
+
+const items = [
+  {
+    src: ObraTerminada1,
+    alt: "Obra terminada 1",
+  },
+  {
+    src: ObraTerminada2,
+    alt: "Obra terminada 2",
+  },
+  {
+    src: ObraTerminada3,
+    alt: "Obra terminada 3",
+  },
+  {
+    src: ObraTerminada4,
+    alt: "Obra terminada 4",
+  },
+  {
+    src: ObraTerminada5,
+    alt: "Obra terminada 5",
+  },
+];
+---
+
+<Carrousel
+  items={items}
+  outerClass="relative overflow-hidden rounded-lg mt-5"
+  containerClass="relative overflow-hidden rounded-lg"
+  width="100%"
+  aspectRatio="16/9"
+  interval={0}
+  showControls={true}
+  initialIndex={0}
+/>

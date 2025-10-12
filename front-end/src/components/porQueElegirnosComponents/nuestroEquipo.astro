@@ -1,5 +1,5 @@
 ---
-
+import CarrouselNuestroEquipo from "@/components/porQueElegirnosComponents/carrousels/carrouselNuestroEquipo.astro";
 ---
 
 <section class="w-full h-full flex py-10 px-40 justify-between">
@@ -25,38 +25,7 @@
       </p>
     </div>
   </article>
-  <aside>
-    <div
-      id="controls-carousel"
-      class="relative w-[900px] h-[550px] rounded-lg"
-      data-carousel="slide"
-      data-carousel-interval="3000"
-    >
-      <!-- Carousel wrapper -->
-      <div class="relative h-full overflow-hidden rounded-lg">
-        <!-- Item 1 -->
-        <div
-          class="hidden duration-700 ease-in-out rounded-lg"
-          data-carousel-item="active"
-        >
-          <img
-            src="/public/imagenes/por-que-elegirnos/nuestro-equipo/mauro.webp"
-            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-lg"
-            alt="..."
-          />
-        </div>
-        <!-- Item 2 -->
-        <div
-          class="hidden duration-700 ease-in-out"
-          data-carousel-item="active"
-        >
-          <img
-            src="/public/imagenes/por-que-elegirnos/nuestro-equipo/bruno.webp"
-            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 rounded-lg"
-            alt="..."
-          />
-        </div>
-      </div>
-    </div>
+  <aside class="w-[900px]">
+    <CarrouselNuestroEquipo />
   </aside>
 </section>

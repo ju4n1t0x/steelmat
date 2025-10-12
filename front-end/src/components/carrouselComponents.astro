@@ -1,0 +1,130 @@
+---
+import { Image } from "astro:assets";
+
+type CarouselItem = { src: ImageMetadata | string; alt?: string };
+
+interface Props {
+  items: CarouselItem[];
+  containerClass?: string;
+  outerClass?: string;
+  interval?: number;
+  showControls?: boolean;
+  initialIndex?: number;
+  width?: number | string;
+  height?: number | string;
+  aspectRatio?: string;
+}
+
+const {
+  items = [],
+  containerClass = "relative w-full h-96 overflow-hidden rounded-lg",
+  outerClass = "relative overflow-hidden rounded-lg",
+  interval = 0,
+  showControls = true,
+  initialIndex = 0,
+  width,
+  height,
+  aspectRatio,
+} = Astro.props as Props;
+
+const isAsset = (v: unknown) => typeof v !== "string";
+
+const toCss = (v: string | number) =>
+  typeof v === "number" ? `${v}px` : String(v);
+const widthCss = width != null ? toCss(width as string | number) : undefined;
+const heightCss = height != null ? toCss(height as string | number) : undefined;
+const styleParts: string[] = [];
+if (widthCss) styleParts.push(`width:${widthCss}`);
+if (heightCss) styleParts.push(`height:${heightCss}`);
+if (!heightCss && aspectRatio) styleParts.push(`aspect-ratio:${aspectRatio}`);
+const containerStyle = styleParts.join(";");
+---
+
+<div class={outerClass}>
+  <div
+    class="relative"
+    data-carousel={interval > 0 ? "slide" : "static"}
+    data-carousel-interval={String(interval)}
+  >
+    <div class={containerClass} style={containerStyle}>
+      {
+        items.map((it, i) => (
+          <div
+            class={`duration-700 ease-in-out ${i === initialIndex ? "" : "hidden"}`}
+            data-carousel-item={i === initialIndex ? "active" : true}
+          >
+            {isAsset(it.src) ? (
+              <Image
+                src={it.src as ImageMetadata}
+                alt={it.alt ?? ""}
+                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                loading="lazy"
+              />
+            ) : (
+              <img
+                src={it.src as string}
+                alt={it.alt ?? ""}
+                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                loading="lazy"
+              />
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    {
+      showControls && (
+        <>
+          <button
+            type="button"
+            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev
+          >
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
+              <svg
+                class="w-4 h-4 text-white rtl:rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 6 10"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M5 1 1 5l4 4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+
+          <button
+            type="button"
+            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next
+          >
+            <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white">
+              <svg
+                class="w-4 h-4 text-white rtl:rotate-180"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 6 10"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="m1 9 4-4-4-4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+        </>
+      )
+    }
+  </div>
+</div>

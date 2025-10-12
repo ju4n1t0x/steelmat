@@ -1,5 +1,7 @@
 ---
 import ModalObraGris from "./modalObraGris.astro";
+import { Image } from "astro:assets";
+import ObraGris9 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-9.webp";
 ---
 
 <section class="flex pb-20 px-40 justify-between bg-[#EFEDED]">
@@ -28,13 +30,14 @@ import ModalObraGris from "./modalObraGris.astro";
     </ul>
   </atricle>
   <aside
-    class="relative w-[900px] h-[550px] rounded-lg overflow-hidden flex items-center justify-center"
+    class="relative w-[900px] h-[550px] mt-15 rounded-lg overflow-hidden flex items-center justify-center"
   >
     <div class="w-full h-full">
-      <img
-        src="/public/imagenes/por-que-elegirnos/obra-gris/9.webp"
+      <Image
+        src={ObraGris9}
         alt="Obra Gris"
-        class="block w-full h-full object-cover"
+        class="block w-full h-full object-cover rounded-lg"
+        loading="lazy"
       />
       <!-- Modal toggle -->
       <button

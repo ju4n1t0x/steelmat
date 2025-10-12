@@ -1,12 +1,27 @@
 ---
 import Whatsappicon from "@/components/whatsappicon.astro";
+import { Image } from "astro:assets";
+import PorQueElegirnosImage from "@/assets/por-que-elegirnos/por-que-elegirnos.webp";
 ---
 
 <section class="relative w-full h-[730px]">
-  <img
-    src="/public/imagenes/por-que-elegirnos/hero.webp"
-    alt="Hero Image"
-    class="w-full h-full object-cover"
+  <Image
+    src={PorQueElegirnosImage}
+    alt="Por que elegirnos"
+    class="absolute inset-0 w-full h-full object-cover -z-10"
+    loading="eager"
   />
+  <div
+    class="relative z-10 h-full flex flex-col justify-center px-14 text-white"
+  >
+    <div class="flex flex-col gap-5 px-20">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        Diseñamos tu casa,
+      </h1>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        Para que sea tu hogar.
+      </h1>
+    </div>
+  </div>
   <Whatsappicon />
 </section>

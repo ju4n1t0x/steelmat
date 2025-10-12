@@ -1,0 +1,32 @@
+---
+import Carrousel from "@/components/carrouselComponents.astro";
+import Habitat1 from "@/assets/home/carrouselHabitat/habitat-1.webp";
+import Habitat2 from "@/assets/home/carrouselHabitat/habitat-2.webp";
+import Habitat3 from "@/assets/home/carrouselHabitat/habitat-3.webp";
+
+const items = [
+  {
+    src: Habitat1,
+    alt: "Habitat 1",
+  },
+  {
+    src: Habitat2,
+    alt: "Habitat 2",
+  },
+  {
+    src: Habitat3,
+    alt: "Habitat 3",
+  },
+];
+---
+
+<Carrousel
+  items={items}
+  outerClass="relative overflow-hidden rounded-lg mt-5"
+  containerClass="relative overflow-hidden rounded-lg"
+  width="100%"
+  aspectRatio="16/9"
+  interval={3000}
+  showControls={true}
+  initialIndex={0}
+/>

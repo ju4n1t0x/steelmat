@@ -1,0 +1,27 @@
+---
+import Carrousel from "../../carrouselComponents.astro";
+import NuestroEquipo1 from "@/assets/por-que-elegirnos/nuestro-equipo/nuestro-equipo-1.webp";
+import NuestroEquipo2 from "@/assets/por-que-elegirnos/nuestro-equipo/nuestro-equipo-2.webp";
+
+const items = [
+  {
+    src: NuestroEquipo1,
+    alt: "Nuestro equipo 1",
+  },
+  {
+    src: NuestroEquipo2,
+    alt: "Nuestro equipo 2",
+  },
+];
+---
+
+<Carrousel
+  items={items}
+  outerClass="relative overflow-hidden rounded-lg mt-5"
+  containerClass="relative overflow-hidden rounded-lg"
+  width="100%"
+  aspectRatio="16/9"
+  interval={3000}
+  showControls={false}
+  initialIndex={0}
+/>

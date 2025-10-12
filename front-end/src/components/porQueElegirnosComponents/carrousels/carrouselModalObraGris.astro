@@ -1,0 +1,62 @@
+---
+import Carrousel from "@/components/carrouselComponents.astro";
+import ObraGris1 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-1.webp";
+import ObraGris2 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-2.webp";
+import ObraGris3 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-3.webp";
+import ObraGris4 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-4.webp";
+import ObraGris5 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-5.webp";
+import ObraGris6 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-6.webp";
+import ObraGris7 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-7.webp";
+import ObraGris8 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-8.webp";
+import ObraGris9 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-9.webp";
+
+const items = [
+  {
+    src: ObraGris1,
+    alt: "Obra gris 1",
+  },
+  {
+    src: ObraGris2,
+    alt: "Obra gris 2",
+  },
+  {
+    src: ObraGris3,
+    alt: "Obra gris 3",
+  },
+  {
+    src: ObraGris4,
+    alt: "Obra gris 4",
+  },
+  {
+    src: ObraGris5,
+    alt: "Obra gris 5",
+  },
+  {
+    src: ObraGris6,
+    alt: "Obra gris 6",
+  },
+  {
+    src: ObraGris7,
+    alt: "Obra gris 7",
+  },
+  {
+    src: ObraGris8,
+    alt: "Obra gris 8",
+  },
+  {
+    src: ObraGris9,
+    alt: "Obra gris 9",
+  },
+];
+---
+
+<Carrousel
+  items={items}
+  outerClass="relative overflow-hidden rounded-lg mt-5"
+  containerClass="relative overflow-hidden rounded-lg"
+  width="100%"
+  aspectRatio="16/9"
+  interval={0}
+  showControls={true}
+  initialIndex={0}
+/>
