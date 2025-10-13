@@ -9,9 +9,9 @@ interface Props {
 const { class: className, color = "text-[#545151]" } = Astro.props;
 ---
 
-<a href="" class:list={[color, "flex hover:underline", className]}>
+<a href="" class:list={[color, "flex hover:underline ", className]}>
   Descubrir más
-  <svg class:list={["w-6 h-6 inline-block ml-2", className]}>
+  <svg class:list={["w-5 h-5 inline-block ml-2 mt-0.5", className]}>
     <use href="/icons/sprite.svg#flecha-icon"></use>
   </svg>
 </a>
