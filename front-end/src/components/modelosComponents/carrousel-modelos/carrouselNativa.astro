@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import Carrousel from "@/components/carrouselComponents.astro";
+import Nativa1 from "@/assets/modelos/nativa/nativa-1.webp";
+import Nativa2 from "@/assets/modelos/nativa/nativa-2.webp";
+import Nativa3 from "@/assets/modelos/nativa/nativa-3.webp";
+import Nativa4 from "@/assets/modelos/nativa/nativa-4.webp";
+
+const items = [
+  { src: Nativa1, alt: "Nativa 1" },
+  { src: Nativa2, alt: "Nativa 2" },
+  { src: Nativa3, alt: "Nativa 3" },
+  { src: Nativa4, alt: "Nativa 4" },
+];
+---
+
+<Carrousel
+  items={items}
+  outerClass="relative overflow-hidden  mt-10"
+  containerClass="relative overflow-hidden "
+  width="100%"
+  aspectRatio="16/9"
+  interval={3000}
+  showControls={false}
+  initialIndex={0}
+/>

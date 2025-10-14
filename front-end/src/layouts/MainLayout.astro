@@ -1,5 +1,11 @@
 ---
-const { tittle, description } = Astro.props;
+const {
+  tittle,
+  description,
+  navBarTextColor = "text-white",
+  iconUrl = "/steelmaticon.svg",
+  textHoverColor = "text-white",
+} = Astro.props;
 import NavBar from "@/components/navBar.astro";
 import Footer from "@/components/footer.astro";
 import "../styles/global.css";
@@ -16,10 +22,7 @@ import "../styles/global.css";
   </head>
   <body>
     <header>
-      <NavBar
-        title="barra-de-navegacion"
-        description="barra de navegacion del sitio"
-      />
+      <NavBar textColor={navBarTextColor} iconUrl={iconUrl} />
     </header>
 
     <main>

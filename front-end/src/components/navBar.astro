@@ -1,52 +1,42 @@
 ---
+interface Props {
+  iconUrl?: string;
+  textColor?: string;
+  textHoverColor?: string;
+}
+const {
+  iconUrl = "/steelmaticon.svg",
+  textColor = "text-white",
+  textHoverColor = "text-white",
+} = Astro.props as Props;
 
+const styleLinks = () =>
+  `${textColor} font-semibold hover:underline hover:decoration-${textHoverColor} hover:decoration-1`;
 ---
 
 <nav
   class="absolute top-0 left-0 w-full z-20 flex justify-center items-center bg-transparent shadow-[0_9px_10px_rgba(0,0,0,0.25)] gap-x-18"
 >
   <a href="/">
-    <img
-      src="/steelmaticon.svg"
-      alt="steelmat"
-      class="h-10 w-auto mr-3 gap-x-18"
-    />
+    <img src={iconUrl} alt="steelmat" class="h-10 w-auto mr-3 gap-x-18" />
   </a>
   <ul class="flex gap-x-18 p-6">
     <li>
-      <a
-        href="/por-que-elegirnos/"
-        class="text-white font-semibold hover:underline hover:decoration-white hover:decoration-1"
-        >¿Por qué elegirnos?</a
-      >
+      <a href="/por-que-elegirnos/" class={styleLinks()}>¿Por qué elegirnos?</a>
     </li>
     <li>
-      <a
-        href="/modelos/"
-        class="text-white font-semibold hover:underline hover:decoration-white hover:decoration-1"
-        >Modelos</a
-      >
+      <a href="/modelos/" class={styleLinks()}>Modelos</a>
     </li>
     <li>
-      <a
-        href="/"
-        class="text-white font-semibold hover:underline hover:decoration-white hover:decoration-1"
-        >Proyectos a medida</a
-      >
+      <a href="/proyectos-a-medida/" class={styleLinks()}>Proyectos a medida</a>
     </li>
     <li>
-      <a
-        href="/consultoria-para-profesionales/"
-        class="text-white font-semibold hover:underline hover:decoration-white hover:decoration-1"
+      <a href="/consultoria-para-profesionales/" class={styleLinks()}
         >Consultoria para profesionales</a
       >
     </li>
     <li>
-      <a
-        href="/"
-        class="text-white font-semibold hover:decoration-white hover:decoration-2"
-        >Capacitaciones</a
-      >
+      <a href="/capacitaciones/" class={styleLinks()}>Capacitaciones</a>
     </li>
     <li>
       <a

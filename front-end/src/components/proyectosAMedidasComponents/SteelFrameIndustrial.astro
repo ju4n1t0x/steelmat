@@ -1,0 +1,54 @@
+---
+import { Image } from "astro:assets";
+import ImageSteelIndustrial from "@/assets/proyectos-a-medida/steel-frame-industrial.webp";
+---
+
+<section class="w-full h-full flex pt-25 pb-20 px-40 justify-between">
+  <article class="flex flex-col p-10 gap-10">
+    <div class="flex items-center gap-2">
+      <svg class="h-[70px] w-[60px] fill-gray-600"
+        ><use href="/icons/sprite.svg#steel-industrial"></use>
+      </svg>
+      <h2 class="text-3xl pl-5 text-gray-600">
+        Steel Frame <br /> Industrial
+      </h2>
+    </div>
+    <div>
+      <p class="text-lg leading-[1.7] font-bold">
+        Ofrecemos soluciones en Steel Frame <br />
+        para empresas, desarrolladores <br />
+        y proyectos industriales.
+      </p>
+      <p class="text-md pt-2 leading-[1.7]">
+        Construcciones eficientes y escalables <br />
+        con materiales de calidad garantizada
+      </p>
+      <ul class="list-disc list-inside text-md pl-5 leading-[1.7]">
+        <li>
+          Infraestructura optimizada para <br />
+          proyectos comerciales e <br />
+          industriales.
+        </li>
+        <li>
+          Reducción de tiempos de ejecución <br />
+        </li>
+      </ul>
+      <a href="" class="flex py-15 hover:underline text-[#545151]">
+        Agendar una reunión
+        <svg class="w-5 h-5 ml-2 mt-0.5" fill="#545151">
+          <use href="/icons/sprite.svg#flecha-icon"></use>
+        </svg>
+      </a>
+    </div>
+  </article>
+  <aside>
+    <div class="relative w-[900px] h-[550px] rounded-lg">
+      <Image
+        src={ImageSteelIndustrial}
+        alt="SteelFrame Industrial"
+        loading="eager"
+        class="w-full h-full object-cover block mx-auto shdow-sm hover:drop-shadow-md transition-shadow duration-200 justify-self-center"
+      />
+    </div>
+  </aside>
+</section>
