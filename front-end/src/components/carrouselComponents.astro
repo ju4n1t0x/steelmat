@@ -57,14 +57,14 @@ const containerStyle = styleParts.join(";");
               <Image
                 src={it.src as ImageMetadata}
                 alt={it.alt ?? ""}
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 loading="lazy"
               />
             ) : (
               <img
                 src={it.src as string}
                 alt={it.alt ?? ""}
-                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 loading="lazy"
               />
             )}
