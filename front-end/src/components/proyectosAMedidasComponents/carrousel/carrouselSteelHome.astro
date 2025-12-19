@@ -1,0 +1,22 @@
+---
+import CarrouselComponents from "../../carrouselComponents.astro";
+import SteelHome1 from "@/assets/proyectos-a-medida/carrousel-steel-home/steel-home-1.webp";
+import SteelHome2 from "@/assets/proyectos-a-medida/carrousel-steel-home/steel-home-2.webp";
+import SteelHome3 from "@/assets/proyectos-a-medida/carrousel-steel-home/steel-home-3.webp";
+const items = [
+  { src: SteelHome1, alt: "Steel Home 1" },
+  { src: SteelHome2, alt: "Steel Home 2" },
+  { src: SteelHome3, alt: "Steel Home 3" },
+];
+---
+
+<CarrouselComponents
+  items={items}
+  outerClass="relative overflow-hidden  mt-10"
+  containerClass="relative overflow-hidden "
+  width="100%"
+  aspectRatio="16/9"
+  interval={3000}
+  showControls={false}
+  initialIndex={0}
+/>

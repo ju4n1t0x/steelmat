@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import ImageSteelIndustrial from "@/assets/proyectos-a-medida/steel-frame-industrial.webp";
+import CarrouselSteelIndustrial from "@/components/proyectosAMedidasComponents/carrousel/carrouselSteelIndustrial.astro";
 ---
 
 <section class="w-full h-full flex pt-25 pb-20 px-40 justify-between">
@@ -41,14 +41,7 @@ import ImageSteelIndustrial from "@/assets/proyectos-a-medida/steel-frame-indust
       </a>
     </div>
   </article>
-  <aside>
-    <div class="relative w-[900px] h-[550px] rounded-lg">
-      <Image
-        src={ImageSteelIndustrial}
-        alt="SteelFrame Industrial"
-        loading="eager"
-        class="w-full h-full object-cover block mx-auto shdow-sm hover:drop-shadow-md transition-shadow duration-200 justify-self-center"
-      />
-    </div>
+  <aside class="w-[900px]">
+    <CarrouselSteelIndustrial />
   </aside>
 </section>

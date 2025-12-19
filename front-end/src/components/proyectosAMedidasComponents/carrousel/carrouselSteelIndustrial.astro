@@ -1,0 +1,27 @@
+---
+import CarrouselComponents from "../../carrouselComponents.astro";
+import SteelIndustrial1 from "@/assets/proyectos-a-medida/carrousel-steel-industrial/steel-industrial-1.webp";
+import SteelIndustrial2 from "@/assets/proyectos-a-medida/carrousel-steel-industrial/steel-industrial-2.webp";
+import SteelIndustrial3 from "@/assets/proyectos-a-medida/carrousel-steel-industrial/steel-industrial-3.webp";
+import SteelIndustrial4 from "@/assets/proyectos-a-medida/carrousel-steel-industrial/steel-industrial-4.webp";
+import SteelIndustrial5 from "@/assets/proyectos-a-medida/carrousel-steel-industrial/steel-industrial-5.webp";
+
+const items = [
+  { src: SteelIndustrial1, alt: "Steel Industrial 1" },
+  { src: SteelIndustrial2, alt: "Steel Industrial 2" },
+  { src: SteelIndustrial3, alt: "Steel Industrial 3" },
+  { src: SteelIndustrial4, alt: "Steel Industrial 4" },
+  { src: SteelIndustrial5, alt: "Steel Industrial 5" },
+];
+---
+
+<CarrouselComponents
+  items={items}
+  outerClass="relative overflow-hidden  mt-10"
+  containerClass="relative overflow-hidden "
+  width="100%"
+  aspectRatio="16/9"
+  interval={3000}
+  showControls={false}
+  initialIndex={0}
+/>
