@@ -1,43 +1,83 @@
-# Astro Starter Kit: Minimal
+# SteelMat - Soluciones en Steel Frame
 
-```sh
-pnpm create astro@latest -- --template minimal
+SteelMat es una aplicación web moderna diseñada para presentar soluciones constructivas en Steel Frame, ofreciendo información sobre modelos de viviendas, proyectos a medida, consultoría para profesionales y capacitaciones.
+
+El proyecto está construido con un enfoque en el rendimiento, la modularidad y una experiencia de usuario fluida, utilizando las últimas tecnologías web.
+
+## 🚀 Tecnologías y Librerías
+
+Este proyecto utiliza un stack tecnológico moderno y eficiente:
+
+- **[Astro](https://astro.build/) (v5.x):** Framework web principal enfocado en el rendimiento y la entrega de menos JavaScript al cliente.
+- **[Tailwind CSS](https://tailwindcss.com/) (v4.x):** Framework de CSS utilitario para un diseño rápido, responsivo y altamente personalizable.
+- **[Flowbite](https://flowbite.com/):** Biblioteca de componentes UI basada en Tailwind CSS para elementos interactivos como carruseles y formularios.
+- **[@midudev/tailwind-animations](https://www.npmjs.com/package/@midudev/tailwind-animations):** Colección de animaciones listas para usar integradas con Tailwind.
+
+## 📂 Estructura del Proyecto
+
+La estructura del proyecto sigue las convenciones de Astro, organizada para facilitar el desarrollo y mantenimiento:
+
+```
+src/
+├── assets/        # Recursos estáticos como imágenes, fuentes y videos optimizados por Astro.
+├── components/    # Componentes reutilizables de la interfaz (UI).
+│   ├── capacitacionesComponents/
+│   ├── carrouselComponents.astro
+│   ├── ConsultoriaParaProfesionales/
+│   ├── essentiaComponents/
+│   ├── homeComponents/
+│   ├── modelosComponents/
+│   ├── nativaComponents/
+│   ├── navBar.astro
+│   ├── porQueElegirnosComponents/
+│   ├── proyectosAMedidasComponents/
+│   └── ...
+├── layouts/       # Plantillas principales que envuelven las páginas (ej. MainLayout).
+├── pages/         # Rutas de la aplicación. Cada archivo aquí es una página accesible.
+│   ├── index.astro
+│   ├── home/
+│   ├── modelos/
+│   ├── proyectos-a-medida/
+│   ├── consultoria-para-profesionales/
+│   └── ...
+└── styles/        # Archivos CSS globales y configuraciones de estilos.
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🛠️ Instalación y Ejecución
 
-## 🚀 Project Structure
+Para ejecutar este proyecto localmente, asegúrate de tener instalado Node.js y pnpm (o npm/yarn).
 
-Inside of your Astro project, you'll see the following folders and files:
+1. **Clonar el repositorio:**
+   ```bash
+   git clone <url-del-repositorio>
+   cd SteelMat/front-end
+   ```
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   # o
+   pnpm install
+   ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. **Iniciar el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   # o
+   pnpm dev
+   ```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+4. **Construir para producción:**
+   ```bash
+   npm run build
+   ```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## ✨ Características Principales
 
-## 🧞 Commands
+- **Diseño Responsivo:** Adaptado a dispositivos móviles y de escritorio.
+- **Navegación Intuitiva:** Estructura clara con secciones definidas para cada servicio.
+- **Componentes Interactivos:** Carruseles de imágenes, formularios de contacto y menús dinámicos.
+- **Optimización de Recursos:** Carga eficiente de imágenes y fuentes gracias a Astro.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+Desarrollado por [Tu Nombre/Equipo]

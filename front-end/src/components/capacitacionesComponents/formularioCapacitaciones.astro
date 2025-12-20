@@ -13,18 +13,19 @@ import Whatsappicon from "../whatsappicon.astro";
       nuevas capacitaciones
     </h2>
 
-    <form class="w-lg mx-auto pt-15">
+    <form id="form-capacitaciones" class="w-lg mx-auto pt-15">
       <div class="mb-8">
         <label
-          for="email"
+          for="nombreApellido"
           class="block mb-2 text-md font-medium text-gray-900 dark:text-[#545151]"
           >Nombre y Apellido*</label
         >
         <input
-          type="email"
-          id="email"
-          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500 transition-colors duration-200"
-          placeholder="name@flowbite.com"
+          type="text"
+          id="nombreApellido"
+          name="nombreApellido"
+          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+          placeholder="Juan Pérez"
           required
         />
       </div>
@@ -37,8 +38,9 @@ import Whatsappicon from "../whatsappicon.astro";
         <input
           type="email"
           id="email"
-          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500 transition-colors duration-200"
-          placeholder="user@user.com"
+          name="email"
+          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+          placeholder="usuario@ejemplo.com"
           required
         />
       </div>
@@ -52,7 +54,8 @@ import Whatsappicon from "../whatsappicon.astro";
         <input
           type="tel"
           id="telefono"
-          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-gray-500 transition-colors duration-200"
+          name="telefono"
+          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
           placeholder="(123) 456-7890"
           required
         />
@@ -60,6 +63,7 @@ import Whatsappicon from "../whatsappicon.astro";
 
       <div class="flex justify-center mb-8">
         <button
+          id="btn-submit-capacitaciones"
           type="submit"
           class="text-white bg-orange-500 hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-lg w-full sm:w-auto px-12 py-2 text-center dark:bg-orange-500 dark:hover:bg-orange-700 dark:focus:ring-orange-600"
           >Enviar</button
@@ -68,4 +72,27 @@ import Whatsappicon from "../whatsappicon.astro";
     </form>
   </div>
 </section>
- <Whatsappicon />
+<Whatsappicon />
+
+<script>
+  import { FormHandler } from "../../utils/formHandler.js";
+  import { capacitacionesSchema } from "../../utils/validationSchemas.js";
+  import { EMAIL_CONFIG } from "../../utils/emailConfig.js";
+
+  // Inicializar el manejador de formularios cuando el DOM esté listo
+  document.addEventListener("DOMContentLoaded", () => {
+    const formHandler = new FormHandler({
+      publicKey: EMAIL_CONFIG.publicKey,
+      serviceId: EMAIL_CONFIG.serviceId,
+      templateId: EMAIL_CONFIG.templates.capacitaciones,
+    });
+
+    formHandler.setupForm("form-capacitaciones", capacitacionesSchema, {
+      type: "capacitaciones",
+      successMessage:
+        "¡Gracias! Te enviaremos información sobre nuevas capacitaciones.",
+      errorMessage:
+        "Hubo un error al enviar el formulario. Por favor, intentá nuevamente.",
+    });
+  });
+</script>
