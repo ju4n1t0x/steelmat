@@ -1,18 +1,9 @@
-import emailjs from '@emailjs/browser';
 
 export class FormHandler {
   constructor(config = {}) {
     this.serviceId = config.serviceId;
     this.templateId = config.templateId;
     this.publicKey = config.publicKey;
-
-    // Inicializar EmailJS si tenemos publicKey
-    if (this.publicKey) {
-      emailjs.init(this.publicKey);
-      console.log('✅ EmailJS inicializado con Public Key:', this.publicKey.substring(0, 10) + '...');
-    } else {
-      console.error('❌ EmailJS publicKey no configurado');
-    }
   }
 
   async setupForm(formId, schema, options = {}) {
@@ -60,48 +51,41 @@ export class FormHandler {
         }
 
         console.log('✅ Validación exitosa');
-        console.log('📧 Datos que se enviarán a EmailJS:');
+        console.log('📧 Datos que se enviarán:');
         console.table(result.data);
         console.log('JSON:', JSON.stringify(result.data, null, 2));
 
         // 4. Deshabilitar botón
         this.setLoadingState(submitButton, true);
 
-        // 5. Preparar configuración
-        const serviceId = options.serviceId || this.serviceId;
-        const templateId = options.templateId || this.templateId;
 
-        if (!serviceId || !templateId) {
-          throw new Error('EmailJS serviceId o templateId no configurados');
-        }
-
-        console.log('🔧 Configuración EmailJS:');
-        console.log('  - Service ID:', serviceId);
-        console.log('  - Template ID:', templateId);
-        console.log('  - Public Key:', this.publicKey?.substring(0, 10) + '...');
         
-        console.log('\n🚀 Enviando a EmailJS con estos datos:');
-        console.log(JSON.stringify(result.data, null, 2));
+       // 5. Enviar al API interno que usa Resend
+const payload = {
+  type: options.type || 'general',
+  data: result.data,
+};
+const resp = await fetch('/api/send-email', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(payload),
+});
+if (!resp.ok) {
+  const text = await resp.text().catch(() => '');
+  throw new Error(text || `HTTP ${resp.status}`);
+}
+const json = await resp.json().catch(() => ({}));
 
-        // 6. Enviar con EmailJS
-        const response = await emailjs.send(
-          serviceId,
-          templateId,
-          result.data
-        );
-
-        console.log('✅ Email enviado exitosamente!');
-        console.log('Respuesta de EmailJS:', response);
-
-        // 7. Mostrar éxito
-        if (options.onSuccess) {
-          await options.onSuccess(result.data, form);
-        } else {
-          this.showSuccess(
-            options.successMessage || '¡Formulario enviado con éxito! Nos pondremos en contacto pronto.'
-          );
-          form.reset();
-        }
+        // 6. Mostrar éxito
+        // 6. Mostrar éxito
+if (options.onSuccess) {
+  await options.onSuccess(result.data, form);
+} else {
+  this.showSuccess(
+    options.successMessage || '¡Formulario enviado con éxito! Nos pondremos en contacto pronto.'
+  );
+}
+form.reset();
 
       } catch (error) {
         console.error('❌ Error al enviar email:', error);
@@ -151,7 +135,6 @@ export class FormHandler {
           if (fieldset && !fieldset.querySelector('.form-error')) {
             fieldset.appendChild(errorDiv);
           }
-        } else {
           field.parentNode.insertBefore(errorDiv, field.nextSibling);
         }
       }
@@ -160,17 +143,20 @@ export class FormHandler {
 
   setLoadingState(button, isLoading) {
     if (!button) return;
-
+    
     if (isLoading) {
       button.disabled = true;
-      button.dataset.originalText = button.textContent;
+      if (!button.dataset.originalText) {
+        button.dataset.originalText = button.textContent || '';
+      }
       button.textContent = 'Enviando...';
       button.classList.add('opacity-75', 'cursor-not-allowed');
-    } else {
-      button.disabled = false;
-      button.textContent = button.dataset.originalText || 'Enviar';
-      button.classList.remove('opacity-75', 'cursor-not-allowed');
+      return;
     }
+    // revertir
+    button.disabled = false;
+    button.textContent = button.dataset.originalText || 'Enviar';
+    button.classList.remove('opacity-75', 'cursor-not-allowed');
   }
 
   showSuccess(msg) {

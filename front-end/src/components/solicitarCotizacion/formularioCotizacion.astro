@@ -1,5 +1,5 @@
 ---
-import Whatsappicon from "../whatsappicon.astro";
+  import ModalFormularios from "../modalFormularios.astro";
 ---
 
 <section
@@ -29,7 +29,7 @@ import Whatsappicon from "../whatsappicon.astro";
             type="text"
             id="nombreApellido"
             name="nombreApellido"
-            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
             placeholder="Juan Pérez"
             required
           />
@@ -44,7 +44,7 @@ import Whatsappicon from "../whatsappicon.astro";
             type="email"
             id="email"
             name="email"
-            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
             placeholder="usuario@ejemplo.com"
             required
           />
@@ -60,7 +60,7 @@ import Whatsappicon from "../whatsappicon.astro";
             type="tel"
             id="telefono"
             name="telefono"
-            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
             placeholder="(123) 456-7890"
             required
           />
@@ -75,7 +75,7 @@ import Whatsappicon from "../whatsappicon.astro";
             type="text"
             id="ubicacion"
             name="ubicacion"
-            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
             placeholder="Córdoba, Córdoba"
             required
           />
@@ -131,7 +131,7 @@ import Whatsappicon from "../whatsappicon.astro";
             type="text"
             id="metros"
             name="metros"
-            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
             placeholder="60, 120, etc"
             required
           />
@@ -186,7 +186,7 @@ import Whatsappicon from "../whatsappicon.astro";
             type="text"
             id="comentarios"
             name="comentarios"
-            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+            class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
             placeholder="Comentarios adicionales"
           />
         </div>
@@ -199,27 +199,34 @@ import Whatsappicon from "../whatsappicon.astro";
           >Enviar</button
         >
       </div>
+       <ModalFormularios
+  id="modal-formularios"
+/>
+
     </form>
   </div>
 </section>
 
 <script>
   import { FormHandler } from "../../utils/formHandler.js";
-  import { cotizacionSchema } from "../../utils/validationSchemas.js";
-  import { EMAIL_CONFIG } from "../../utils/emailConfig.js";
+  import { cotizacionSchema } from "../../validation";
+  import {Modal} from "flowbite";
+
+
+
 
   // Inicializar el manejador de formularios cuando el DOM esté listo
   document.addEventListener("DOMContentLoaded", () => {
-    const formHandler = new FormHandler({
-      publicKey: EMAIL_CONFIG.publicKey,
-      serviceId: EMAIL_CONFIG.serviceId,
-      templateId: EMAIL_CONFIG.templates.cotizacion,
-    });
+    const modalElement = document.getElementById("modal-formularios");
+    const modal = new Modal(modalElement);
+    
+    const formHandler = new FormHandler();
 
     formHandler.setupForm("form-cotizacion", cotizacionSchema, {
       type: "cotizacion",
-      successMessage:
-        "¡Gracias! Tu solicitud de cotización ha sido enviada. Nos contactaremos pronto.",
+      onSuccess: () => {
+modal.show();
+},
       errorMessage:
         "Hubo un error al enviar el formulario. Por favor, intentá nuevamente.",
     });
