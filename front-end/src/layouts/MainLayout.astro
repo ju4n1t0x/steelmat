@@ -8,6 +8,7 @@ const {
 } = Astro.props;
 import NavBar from "@/components/navBar.astro";
 import Footer from "@/components/footer.astro";
+import { OpenPanelComponent } from '@openpanel/astro';
 import "../styles/global.css";
 ---
 
@@ -19,12 +20,21 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{tittle}</title>
+    <OpenPanelComponent
+      clientId="your-client-id"
+      trackScreenViews={true}
+       trackAttributes={true}
+       trackOutgoingLinks={true}
+       apiUrl="https://steelmat.com.ar"
+       cdnUrl="https://openpanel.dev/op1.js"
+       profileId="37713879"
+       
+    />
   </head>
   <body>
     <header>
       <NavBar textColor={navBarTextColor} iconUrl={iconUrl} />
     </header>
-
     <main>
       <slot />
     </main>
@@ -33,5 +43,16 @@ import "../styles/global.css";
     <script>
       import "flowbite";
     </script>
+    <!--
+    <script>
+  window.op=window.op||function(){var n=[];return new Proxy(function(){arguments.length&&n.push([].slice.call(arguments))},{get:function(t,r){return"q"===r?n:function(){n.push([r].concat([].slice.call(arguments)))}} ,has:function(t,r){return"q"===r}}) }();
+  window.op('init', {
+    clientId: '7eaa9e80-840e-4a83-a3b6-e60d2ecab267',
+    trackScreenViews: true,
+    trackOutgoingLinks: true,
+    trackAttributes: true,
+  });
+</script>
+<script src="https://openpanel.dev/op1.js" defer async></script> -->
   </body>
 </html>

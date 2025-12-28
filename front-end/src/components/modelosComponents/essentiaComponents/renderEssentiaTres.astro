@@ -1,7 +1,6 @@
 ---
 import {Image} from "astro:assets";
 import RenderEssentiaImage from "@/assets/modelos/essentia/render-essentia-3.webp"
-import DescubrirMas from "@/components/homeComponents/descubrirMas.astro";
 import ModalEssentiaTres from "./modales/modalEssentiaTres/modalEssentiaTres.astro";
 ---
 
@@ -24,20 +23,22 @@ import ModalEssentiaTres from "./modales/modalEssentiaTres/modalEssentiaTres.ast
        <span class="text-gray-800 font-bold">Precio: Consultar</span>
       </div>
     </div>
-      <div class="flex items-center pt-10 gap-5">
+  <div class="flex items-center pt-10 gap-5">
   <button
     type="button"
     class="bg-gray-300/50 text-gray-700 focus:outline-none
        hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
        px-5 py-2.5 flex items-center gap-2"
-    data-modal-target="static-modal"
-    data-modal-toggle="static-modal"
+    data-modal-target="modal-essentia-1-3"
+    data-modal-toggle="modal-essentia-1-3"
   >
     Ver renders
     <svg class="w-5 h-5 text-gray-700">
       <use href="/icons/sprite.svg#flecha-icon"></use>
     </svg>
   </button>
+  
+  </div>
   </article>
   <aside class="w-[800px] h-[600px]">
     <Image src={RenderEssentiaImage} alt="Essentia" class="w-full h-full "/>
@@ -48,7 +49,8 @@ import ModalEssentiaTres from "./modales/modalEssentiaTres/modalEssentiaTres.ast
   initCarouselSync({
     carouselId: "essentia-1-3",
     totalItems: 6,
-    eventName: "essentia:image-change"
+    eventName: "essentia-1-3:image-change",
+    modalId: "modal-essentia-1-3"
   });
 </script>
 </section>

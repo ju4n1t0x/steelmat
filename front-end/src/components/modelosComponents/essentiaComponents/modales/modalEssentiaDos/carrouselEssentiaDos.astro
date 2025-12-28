@@ -1,0 +1,33 @@
+---
+import Carrousel from "@/components/carrouselComponents.astro";
+import Essentia1 from "@/assets/modelos/essentia/carrousel/essentia-1.2/essentia-1.2-1.webp";
+import Eseentia2 from "@/assets/modelos/essentia/carrousel/essentia-1.2/essentia-1.2-2.webp";
+import Eseentia3 from "@/assets/modelos/essentia/carrousel/essentia-1.2/essentia-1.2-3.webp";
+import Essentia4 from "@/assets/modelos/essentia/carrousel/essentia-1.2/essentia-1.2-4.webp";
+import Eseentia5 from "@/assets/modelos/essentia/carrousel/essentia-1.2/essentia-1.2-5.webp";
+import Eseentia6 from "@/assets/modelos/essentia/carrousel/essentia-1.2/esssentia-1.2-6.webp";
+
+const items = [
+  { src: Essentia1, alt: "Essentia 1.2 - Fachada" },
+  { src: Eseentia2, alt: "Essentia 1.2 - Cocina" },
+  { src: Eseentia3, alt: "Essentia 1.2 - Baño" },
+  { src: Essentia4, alt: "Essentia 1.2 - Dromitorio 1" },
+  { src: Eseentia5, alt: "Essentia 1.2 - Dormitorio 2" },
+  { src: Eseentia6, alt: "Essentia 1.2 - Contrafachada" }
+];
+---
+
+<Carrousel
+  items={items}
+  carouselId="essentia-1-2"
+  outerClass="relative overflow-hidden rounded-lg mt-5 "
+  containerClass="relative overflow-hidden rounded-lg object-cover"
+  width="100%"
+  aspectRatio="16/9"
+  interval={0}
+  showControls={true}
+  initialIndex={0}
+  imgClass="object-fill"
+  
+/>
+

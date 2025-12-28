@@ -1,19 +1,19 @@
 ---
-import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents/modales/modalEssentiaTres/carrouselEssentiaTres.astro";
+import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents/modales/modalEssentiaDos/carrouselEssentiaDos.astro";
 ---
 
 <script>
   const imageTexts = [
-    "Contrafachada",
-    "Sala de estar ampliada",
-    "Sala de estar ampliada",
-    "Cocina con isla",
-    "Dormitorio 1 y 2",
-    "Fachada"
+    "Fachada",
+    "Cocina",
+    "Baño",
+    "Dormitorio 1",
+    "Dormitorio 2",
+    "Contrafachada"
   ];
 
-  document.addEventListener("essentia-1-3:image-change", (e: Event) => {
-    const textEl = document.getElementById("image-text-essentia-1-3");
+  document.addEventListener("essentia-1-2:image-change", (e: Event) => {
+    const textEl = document.getElementById("image-text-essentia-1-2");
     if (!textEl) return;
 
     const customEvent = e as CustomEvent<{ index: number }>;
@@ -26,7 +26,7 @@ import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents
 
 
 <div
-  id="modal-essentia-1-3"
+  id="modal-essentia-1-2"
   data-modal-backdrop="static"
   tabindex="-1"
   aria-hidden="true"
@@ -41,7 +41,7 @@ import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents
         <button
           type="button"
           class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 inline-flex justify-center items-center"
-          data-modal-hide="modal-essentia-1-3"
+          data-modal-hide="modal-essentia-1-2"
         >
           ✕
         </button>
@@ -58,8 +58,8 @@ import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents
         <div class="flex flex-col w-1/3 p-4 md:p-5 border-t border-gray-200">
           <div class="flex-grow"></div>
           <div class="mt-auto">
-            <p class="text-gray-700 text-lg">ESSENTIA 1.3</p>
-            <p id="image-text-essentia-1-3" class="text-gray-700 text-lg font-semibold"></p>
+            <p class="text-gray-700 text-lg">ESSENTIA 1.2</p>
+            <p id="image-text-essentia-1-2" class="text-gray-700 text-lg font-semibold"></p>
           </div>
         </div>
       </div>
