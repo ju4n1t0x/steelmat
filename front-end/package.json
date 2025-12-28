@@ -10,12 +10,14 @@
     "build:styles": "pnpx @tailwindcss/cli -i ./ipunt.css -o ./assets/output.css --watch"
   },
   "dependencies": {
+    "@astrojs/vercel": "^9.0.2",
     "@midudev/tailwind-animations": "^0.2.0",
     "@openpanel/astro": "^1.0.6",
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.16.5",
     "flowbite": "^3.1.2",
     "resend": "^6.6.0",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.11",
     "zod": "^4.2.1"
   }
