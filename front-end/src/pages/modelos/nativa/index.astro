@@ -1,0 +1,20 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroNativa from "@/components/modelosComponents/nativaComponents/heroNativa.astro";
+import DescripcionNativa from "@/components/modelosComponents/nativaComponents/descripcionNativa.astro";
+import RenderNativa from "@/components/modelosComponents/nativaComponents/renderNativa.astro";
+import Navegacion from "@/components/modelosComponents/navegacionComponents.astro";
+---
+
+<MainLayout
+  title="Nativa"
+  description="Modelo NATIVA prediseñado con tecnología Steel Frame."
+  navBarTextColor="text-gray-700"
+  iconUrl="/public/icons/steelmat-negro.webp"
+  textHoverColor="gray-700"
+>
+  <HeroNativa />
+ <DescripcionNativa />
+<RenderNativa />
+<Navegacion hrefVolver="/modelos/essentia" hrefSiguiente="/modelos/" textVolver="Volver a Essentia" textSiguiente="Volver a Modelos SteelHome" />
+</MainLayout>

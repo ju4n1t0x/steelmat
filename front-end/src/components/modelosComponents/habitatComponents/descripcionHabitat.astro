@@ -1,0 +1,29 @@
+---
+import {Image} from "astro:assets";
+import HabitatImage from "@/assets/modelos/habitat/habitat-1.webp"
+
+---
+
+<section class="w-full h-full flex py-20 px-40 justify-between">
+  <article class="flex flex-col p-10 gap-5">
+    <div class="flex flex-col items-start w-[385px]">
+      <h2 class="text-4xl text-gray-700 font-bold ">UNA VIVIENDA SÓLIDA Y <br/>
+    LISTA PARA ACOMPAÑAR <br/>
+TU CRECIMIENTO.</h2>
+    </div>
+    <div>
+      <p class="text-md pt-2 leading-[1.7] text-justify text-gray-700 w-[400px] tracking-wide">
+        Con 80m² cubiertos y 36m² semicubiertos, hábitat ofrece un estar-comedor amplio,
+        cocina sectorizada, toilette, baño completo, dos dormitorios con posibilidad de expansión a tres,
+        y una galería semicubierta con lavadero integrado.
+        Su cochera pasante conecta con los espacios exteriores, integrando practicidad y fluidez en el uso diario.
+        Con terminaciones de primera calidad, iluminación incluida y mobiliario de cocina instalado,
+        HABITAT es más que una casa.
+      </p>
+    </div>
+    
+  </article>
+  <aside class="w-[800px] h-">
+    <Image src={HabitatImage} alt="Habitat" class="w-full aspect-[16/9] object-fill"/>
+  </aside>
+</section>

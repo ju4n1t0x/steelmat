@@ -1,0 +1,45 @@
+---
+import CarrouselHabitat from "./carrousel-modelos/carrouselHabitat.astro";
+import DescubrirMas from "@/components/homeComponents/descubrirMas.astro";
+---
+
+<section class="w-full h-full flex py-20 px-40 justify-between">
+  <article class="flex flex-col p-10 gap-5">
+    <div class="flex flex-col items-start">
+      <h2 class="text-4xl text-gray-500 font-sans">Modelo</h2>
+      <h2 class="text-4xl text-gray-600 text-bold font-extrabold">HÁBITAT</h2>
+    </div>
+    <div class="w-[300px]">
+      <p class="text-sm pt-2 text-justify text-gray-700">
+        Espacio para crecer. Diseño para vivir. 
+        Pensado para quienes proyectan más, 
+        HÁBITAT combina <strong>amplitud, diseño 
+        funcional y confort de alto nivel,</strong> con la 
+        garantía de una solución llave en mano.
+      </p>
+    </div>
+    <div>
+      <ul class="text-sm text-gray-700">
+        <li>Listo para habitar en 5 meses</li>
+        <li>Adaptable y proyectado al futuro</li>
+        <li><strong>Apto crédito hipotecario</strong></li>
+      </ul>
+    </div>
+    <div>
+      <span class="text-sm text-gray-700">Entrega: <strong>Llave en mano</strong></span>
+    </div>
+    <div class="flex items-center gap-5">
+      <button
+        type="button"
+        class="bg-gray-300/50 focus:outline-none
+           hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
+           px-5 py-2.5"
+      >
+        <DescubrirMas href="/modelos/habitat/" />
+      </button>
+    </div>
+  </article>
+  <aside class="w-[800px]">
+    <CarrouselHabitat />
+  </aside>
+</section>

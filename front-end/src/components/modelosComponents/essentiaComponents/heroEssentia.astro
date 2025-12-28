@@ -1,0 +1,27 @@
+---
+import Whatsappicon from "@/components/whatsappicon.astro";
+import { Image } from "astro:assets";
+import EssentiaImage from "@/assets/modelos/essentia/hero-essentia.webp";
+---
+
+<section class="relative w-full mt-18 h-[calc(730px-6rem)]">
+  <Image
+    src={EssentiaImage}
+    alt="Habitat"
+    class="absolute inset-0 w-full h-full object-cover -z-10 brightness-65"
+    loading="eager"
+  />
+  <div
+    class="relative z-10 h-full flex flex-col justify-center items-center text-white"
+  >
+    <div class="flex flex-col justify-center items-center ">
+      <h1 class="text-[8rem] xl:text-[8rem] font brightness-93 tracking-[2rem]">
+        ESSENTIA
+      </h1>
+      <h2 class="xl:text-2xl max-w-xl">
+        TU CASA PROPIA EN TRES MESES, PARA SIEMPRE
+      </h2>
+    </div>
+  </div>
+  <Whatsappicon />
+</section>

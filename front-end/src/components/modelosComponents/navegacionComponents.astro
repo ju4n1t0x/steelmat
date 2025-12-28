@@ -1,0 +1,27 @@
+---
+
+interface Props {
+    hrefVolver?: string;
+    hrefSiguiente?: string;
+    textVolver?: string;
+    textSiguiente?: string;
+}
+const { hrefVolver = "/modelos/", hrefSiguiente = "#", textVolver = "Volver a modelos SteelHome", textSiguiente = "Ver Modelo siguiente" } = Astro.props;
+---
+
+
+
+<div class="flex justify-between pb-10 p-30 text-gray-400">
+    <a href={hrefVolver} class="italic flex gap-2">
+        <svg class="w-6 h-6 text-gray-400">
+            <use href="/icons/sprite.svg?v2#modeloAnterior" />
+        </svg>
+        {textVolver}
+    </a>
+    <a href={hrefSiguiente} class="italic flex gap-2">
+        
+        {textSiguiente}<svg class="w-6 h-6 text-gray-400">
+            <use href="/icons/sprite.svg?v2#modeloSiguiente" />
+        </svg>
+    </a>
+</div>

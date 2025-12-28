@@ -1,0 +1,25 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroEssentia from "@/components/modelosComponents/essentiaComponents/heroEssentia.astro";
+import DescripcionEssentia from "@/components/modelosComponents/essentiaComponents/descripcionEssentia.astro";
+import RenderEssentia from "@/components/modelosComponents/essentiaComponents/renderEssentiaUno.astro";
+import RenderEssentiaDos from "@/components/modelosComponents/essentiaComponents/renderEssentiaDos.astro";
+import RenderEssentiaTres from "@/components/modelosComponents/essentiaComponents/renderEssentiaTres.astro";
+import Navegacion from "@/components/modelosComponents/navegacionComponents.astro";
+
+---
+
+<MainLayout
+  title="Essentia"
+  description="Modelo ESSENTIA prediseñado con tecnología Steel Frame."
+  navBarTextColor="text-gray-700"
+  iconUrl="/public/icons/steelmat-negro.webp"
+  textHoverColor="gray-700"
+>
+  <HeroEssentia />
+ <DescripcionEssentia />
+<RenderEssentia />
+<RenderEssentiaDos />
+<RenderEssentiaTres />
+<Navegacion hrefVolver="/modelos/habitat" hrefSiguiente="/modelos/nativa" textVolver="Volver a Habitat" textSiguiente="Ver Nativa siguiente"/>
+</MainLayout>

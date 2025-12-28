@@ -13,6 +13,8 @@ interface Props {
   width?: number | string;
   height?: number | string;
   aspectRatio?: string;
+  imgClass?: string;
+  carouselId?: string;
 }
 
 const {
@@ -25,6 +27,8 @@ const {
   width,
   height,
   aspectRatio,
+  imgClass ="object-cover",
+  carouselId = "carousel"
 } = Astro.props as Props;
 
 const isAsset = (v: unknown) => typeof v !== "string";
@@ -45,6 +49,7 @@ const containerStyle = styleParts.join(";");
     class="relative"
     data-carousel={interval > 0 ? "slide" : "static"}
     data-carousel-interval={String(interval)}
+    data-carousel-id={carouselId}
   >
     <div class={containerClass} style={containerStyle}>
       {
@@ -57,14 +62,14 @@ const containerStyle = styleParts.join(";");
               <Image
                 src={it.src as ImageMetadata}
                 alt={it.alt ?? ""}
-                class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                class={`absolute block w-full h-full ${imgClass} -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
                 loading="lazy"
               />
             ) : (
               <img
                 src={it.src as string}
                 alt={it.alt ?? ""}
-                class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                class={`absolute block w-full h-full ${imgClass} -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
                 loading="lazy"
               />
             )}

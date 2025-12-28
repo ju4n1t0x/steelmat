@@ -1,0 +1,20 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import HeroHabitat from "@/components/modelosComponents/habitatComponents/heroHabitat.astro";
+import DescripcionHabitat from "@/components/modelosComponents/habitatComponents/descripcionHabitat.astro";
+import RenderHabitat from "@/components/modelosComponents/habitatComponents/renderHabitat.astro";
+import Navegacion from "@/components/modelosComponents/navegacionComponents.astro";
+---
+
+<MainLayout
+  title="Habitat"
+  description="Modelo HÁBITAT prediseñado con tecnología Steel Frame."
+  navBarTextColor="text-gray-700"
+  iconUrl="/public/icons/steelmat-negro.webp"
+  textHoverColor="gray-700"
+>
+  <HeroHabitat />
+ <DescripcionHabitat />
+<RenderHabitat />
+<Navegacion hrefVolver="/modelos/" hrefSiguiente="/modelos/essentia" textSiguiente="Ver Essentia siguiente"/>
+</MainLayout>

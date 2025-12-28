@@ -1,0 +1,66 @@
+---
+import CarrouselHabitat from "@/components/modelosComponents/habitatComponents/modal/carrouselHabitat.astro";
+---
+
+<script>
+  const imageTexts = [
+    "Fachada",
+    "Sala de estar - comedor",
+    "Contrafachada"
+  ];
+
+  document.addEventListener("habitat:image-change", (e: Event) => {
+    const textEl = document.getElementById("image-text");
+    if (!textEl) return;
+
+    const customEvent = e as CustomEvent<{ index: number }>;
+    const index = customEvent.detail?.index;
+    if (typeof index !== "number") return;
+
+    textEl.textContent = imageTexts[index];
+  });
+</script>
+
+
+<div
+  id="static-modal"
+  data-modal-backdrop="static"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50
+         justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="relative flex flex-col p-6 w-full max-w-6xl max-h-[100%]">
+    <div class="relative bg-gray-700 shadow-sm dark:bg-white pb-10">
+
+      <!-- Header -->
+      <div class="flex items-center justify-between p-4 md:p-5 border-b border-gray-300">
+        <button
+          type="button"
+          class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 inline-flex justify-center items-center"
+          data-modal-hide="static-modal"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="flex w-full">
+        <div class="p-4 md:p-5 w-2/3">
+          <div class="relative w-full" style="aspect-ratio: 16/9;" data-carousel="static">
+            <CarrouselHabitat />
+          </div>
+        </div>
+
+        <div class="flex flex-col w-1/3 p-4 md:p-5 border-t border-gray-200">
+          <div class="flex-grow"></div>
+          <div class="mt-auto">
+            <p class="text-gray-700 text-lg">HABITAT 1.1</p>
+            <p id="image-text" class="text-gray-700 text-lg font-semibold"></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

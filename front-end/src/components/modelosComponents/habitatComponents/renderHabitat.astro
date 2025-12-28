@@ -1,0 +1,58 @@
+---
+import {Image} from "astro:assets";
+import RenderHabitatImage from "@/assets/modelos/habitat/render-habitat.webp";
+import ModalHabitat from "@/components/modelosComponents/habitatComponents/modal/modalHabitat.astro";
+
+---
+
+<section class="w-full h-full flex py-20 px-40 justify-between">
+  <article class="flex flex-col p-10 gap-5">
+    <div class="flex flex-col items-start w-[385px]">
+      <h2 class="text-4xl text-gray-700 font-bold ">
+        <strong>Modelo HÁBITAT 1.1</strong>
+      </h2>
+    </div>
+    <div>
+      <div>
+      <p class="text-md pt-2 leading-[1.7] text-justify w-[400px] tracking-wide pt-10">
+       <ul class="text-gray-700">Cocina Comedor</ul>
+       <ul class="text-gray-700">Sala de estar</ul>
+       <ul class="text-gray-700">Baño (1)</ul>
+       <ul class="text-gray-700">Dormitorio (1)</ul>
+       <ul class="text-gray-700">Cochera</ul>
+       </p>
+</div>
+<div class="pt-10">
+       <span class="text-gray-800 font-bold">Precio: a consultar</span>
+      </div>
+    </div>
+    <div class="flex items-center pt-10 gap-5">
+  <button
+    type="button"
+    class="bg-gray-300/50 text-gray-700 focus:outline-none
+       hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
+       px-5 py-2.5 flex items-center gap-2"
+    data-modal-target="static-modal"
+    data-modal-toggle="static-modal"
+  >
+    Ver renders
+    <svg class="w-5 h-5 text-gray-700">
+      <use href="/icons/sprite.svg#flecha-icon"></use>
+    </svg>
+  </button>
+</div>
+  </article>
+  <aside class="w-[800px] h-[800px]">
+    <Image src={RenderHabitatImage} alt="Habitat" class="w-full h-full "/>
+  </aside>
+  <ModalHabitat/>
+   <script type="module" >
+    import {initCarouselSync} from"/src/utils/script-carrousel.js";
+  initCarouselSync({
+    carouselId: "habitat-1-1",
+    totalItems: 3,
+    eventName: "habitat:image-change"
+  });
+</script>
+</script>
+</section>
