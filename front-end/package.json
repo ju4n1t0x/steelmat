@@ -2,7 +2,9 @@
   "name": "steelmat",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@10.12.4",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
