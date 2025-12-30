@@ -15,6 +15,8 @@ interface Props {
   aspectRatio?: string;
   imgClass?: string;
   carouselId?: string;
+  quality?: "low" | "mid" | "high" | "max";
+  format?: "avif" | "webp" | "png" | "jpg" | "jpeg";
 }
 
 const {
@@ -27,8 +29,10 @@ const {
   width,
   height,
   aspectRatio,
-  imgClass ="object-cover",
-  carouselId = "carousel"
+  imgClass = "object-cover",
+  carouselId = "carousel",
+  quality = "high",
+  format = "avif",
 } = Astro.props as Props;
 
 const isAsset = (v: unknown) => typeof v !== "string";
@@ -62,8 +66,10 @@ const containerStyle = styleParts.join(";");
               <Image
                 src={it.src as ImageMetadata}
                 alt={it.alt ?? ""}
+                format={format}
+                quality={quality}
                 class={`absolute block w-full h-full ${imgClass} -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
-                loading="lazy"
+                loading={i === initialIndex ? "eager" : "lazy"}
               />
             ) : (
               <img

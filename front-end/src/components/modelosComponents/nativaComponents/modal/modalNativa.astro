@@ -1,0 +1,113 @@
+---
+import CarrouselNativa from "@/components/modelosComponents/nativaComponents/modal/carrouselNativa.astro";
+---
+
+<script>
+  const imageTexts = ["Fachada", "Dormitorio", "Baño", "Baño"];
+
+  let currentIndex = 0;
+
+  function updateText(index: number) {
+    const textEl = document.getElementById("nativa-image-text");
+    if (!textEl) {
+      console.warn("Element #nativa-image-text not found");
+      return;
+    }
+
+    console.log(
+      `Nativa: Actualizando texto a índice ${index}: ${imageTexts[index]}`
+    );
+    textEl.textContent = imageTexts[index] || "Imagen";
+    currentIndex = index;
+  }
+
+  // Escuchar cambios de imagen
+  document.addEventListener("nativa-1-1:image-change", (e: Event) => {
+    console.log("Nativa: Evento nativa-1-1:image-change recibido", e);
+    const customEvent = e as CustomEvent<{ index: number }>;
+    const index = customEvent.detail?.index;
+
+    if (typeof index !== "number") {
+      console.warn("Nativa: Index no es un número", index);
+      return;
+    }
+
+    updateText(index);
+  });
+
+  // Establecer texto inicial cuando se abre el modal
+  document.addEventListener("DOMContentLoaded", () => {
+    console.log("Nativa: DOMContentLoaded");
+    const modal = document.getElementById("modal-nativa-1-1");
+    if (!modal) {
+      console.warn("Nativa: Modal #modal-nativa-1-1 not found");
+      return;
+    }
+
+    // Observer para detectar cuando el modal se muestra
+    const observer = new MutationObserver(() => {
+      if (!modal.classList.contains("hidden")) {
+        console.log("Nativa: Modal abierto, estableciendo texto inicial");
+        updateText(currentIndex);
+      }
+    });
+
+    observer.observe(modal, { attributes: true, attributeFilter: ["class"] });
+
+    // Establecer texto inicial inmediatamente si el modal está visible
+    if (!modal.classList.contains("hidden")) {
+      updateText(currentIndex);
+    }
+  });
+</script>
+
+<div
+  id="modal-nativa-1-1"
+  data-modal-backdrop="static"
+  tabindex="-1"
+  aria-hidden="true"
+  class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50
+         justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+>
+  <div class="relative flex flex-col p-6 w-full max-w-6xl max-h-[100%]">
+    <div class="relative bg-gray-700 shadow-sm dark:bg-white pb-10">
+      <!-- Header -->
+      <div
+        class="flex items-center justify-between p-4 md:p-5 border-b border-gray-300"
+      >
+        <button
+          type="button"
+          class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg w-8 h-8 inline-flex justify-center items-center"
+          data-modal-hide="modal-nativa-1-1"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="flex w-full">
+        <div class="p-4 md:p-5 w-2/3">
+          <div
+            class="relative w-full"
+            style="aspect-ratio: 16/9;"
+            data-carousel="static"
+          >
+            <CarrouselNativa />
+          </div>
+        </div>
+
+        <div class="flex flex-col w-1/3 p-4 md:p-5 border-t border-gray-200">
+          <div class="flex-grow"></div>
+          <div class="mt-auto">
+            <p class="text-gray-700 text-lg">NATIVA 1.1</p>
+            <p
+              id="nativa-image-text"
+              class="text-gray-700 text-lg font-semibold"
+            >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

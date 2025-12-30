@@ -2,31 +2,29 @@
 import CarrouselProyectosAMedida from "@/components/proyectosAMedidasComponents/carrousel/carrouselSteelHome.astro";
 ---
 
-<section class="w-full h-full flex py-10 px-40 justify-between">
-  <article class="flex flex-col pt-20 gap-10">
-    <div class="flex items-center gap-2">
+<section class="w-full h-full flex pt-20 pb-20 px-40 justify-between">
+  <article class="flex flex-col p-10 gap-10">
+    <div class="flex items-center gap-2 w-[400px]">
       <h2 class="text-4xl text-gray-600">
-        ¿Tenés una construcción <br />
-        en mente? en SteelMat lo <br />
-        hacemos realidad.
+        ¿Tenés una construcción en mente?
+        <br /> en SteelMat lo hacemos realidad.
       </h2>
     </div>
-    <div class="pt-5">
+    <div class="w-[400px] pt-5">
       <span class="text-lg leading-[1.7]">¿Qué hacemos?</span>
-      <p class="text-lg leading-[1.7] font-bold">
-        Diseñamos y adaptamos cada proyecto <br />
-        a tus necesidades, garantizando <br />
+      <p class="text-lg leading-[1.7] font-bold text-justify">
+        Diseñamos y adaptamos cada proyecto a tus necesidades, garantizando
         eficiencia, calidad y confort.
       </p>
-      <a href="" class="flex py-15 hover:underline text-[#545151]">
-        Descubrir más
+      <a href="/contacto/" class="flex py-15 hover:underline text-[#545151]">
+        Agendar una reunión
         <svg class="w-5 h-5 ml-2">
           <use href="/icons/sprite.svg#flecha-icon"></use>
         </svg>
       </a>
     </div>
   </article>
-  <aside class="w-[900px]">
+  <aside class="w-[800px]">
     <CarrouselProyectosAMedida />
   </aside>
 </section>

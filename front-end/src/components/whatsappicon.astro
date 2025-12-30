@@ -1,13 +1,44 @@
 ---
+interface Props {
+  positionClass?: string;
+  stickyOnScroll?: boolean;
+}
 
+const {
+  positionClass = "absolute bottom-0 right-4 translate-y-1/2",
+  stickyOnScroll = true,
+} = Astro.props;
 ---
 
 <a
   href="https://api.whatsapp.com/send/?phone=5493425524299&text&type=phone_number&app_absent=0"
+  target="_blank"
+  rel="noopener noreferrer"
 >
   <img
-    class="absolute bottom-0 right-4 w-12 h-12 translate-y-1/2"
+    id="whatsapp-icon"
+    class={`w-12 h-12 ${positionClass} transition-all duration-500 ease-in-out z-50`}
     src="/icons/whatsapp.webp"
     alt="whatsapp"
+    data-sticky={String(stickyOnScroll)}
   />
 </a>
+
+<script>
+  const icon = document.getElementById("whatsapp-icon");
+  if (icon && icon.dataset.sticky === "true") {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 200) {
+        icon.style.position = "fixed";
+        icon.style.bottom = "auto";
+        icon.style.top = "50%";
+        icon.style.transform = "translateY(-50%)";
+      } else {
+        icon.style.position = "";
+        icon.style.bottom = "";
+        icon.style.top = "";
+        icon.style.transform = "";
+      }
+    });
+  }
+</script>

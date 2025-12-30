@@ -1,0 +1,27 @@
+---
+import Carrousel from "@/components/carrouselComponents.astro";
+import Nativa1 from "@/assets/modelos/nativa/carrousel/nativa-1.1-1.webp";
+import Nativa2 from "@/assets/modelos/nativa/carrousel/nativa-1.1-2.webp";
+import Nativa3 from "@/assets/modelos/nativa/carrousel/nativa-1.1-3.webp";
+import Nativa4 from "@/assets/modelos/nativa/carrousel/nativa-1.1-4.webp";
+
+const items = [
+  { src: Nativa1, alt: "Nativa 1.1 - Fachada" },
+  { src: Nativa2, alt: "Nativa 2 - Dormitorio" },
+  { src: Nativa3, alt: "Nativa 3 - Baño" },
+  { src: Nativa4, alt: "Nativa 4 - Baño" },
+];
+---
+
+<Carrousel
+  items={items}
+  carouselId="nativa-1-1"
+  outerClass="relative overflow-hidden rounded-lg mt-5 "
+  containerClass="relative overflow-hidden rounded-lg object-cover"
+  width="100%"
+  aspectRatio="16/9"
+  interval={0}
+  showControls={true}
+  initialIndex={0}
+  imgClass="object-fill"
+/>

@@ -1,22 +1,33 @@
 ---
-import {Image} from "astro:assets";
-import NativaImage from "@/assets/modelos/nativa/nativa-2.webp"
-
+import { Image } from "astro:assets";
+import NativaImage from "@/assets/modelos/nativa/nativa-2.webp";
 ---
 
 <section class="w-full h-full flex py-20 px-40 justify-between">
   <article class="flex flex-col p-10 gap-5">
     <div class="flex flex-col items-start w-[385px]">
-      <h2 class="text-4xl text-gray-700 font-bold ">Falta texto
+      <h2 class="text-4xl text-gray-700 font-bold">
+        EL ESPACIO QUE TU HOGAR ESTABA ESPERANDO.
+      </h2>
     </div>
     <div>
-      <p class="text-md pt-2 leading-[1.7] text-justify text-gray-700 w-[400px] tracking-wide">
-        Falta texto
+      <p
+        class="text-md pt-2 leading-[1.7] text-justify text-gray-700 w-[400px] tracking-wide"
+      >
+        Un módulo de 28 m² independiente y versátil, que se integra a tu terreno
+        sin obras invasivas. Una solución llave en mano, equipada para funcionar
+        como quincho, oficina o vivienda desde el primer día. Una inversión
+        rentable y segura, NATIVA te permite ampliar tu casa o generar ingresos
+        de inmediato. La forma más simple de crecer con rapidez, calidad y
+        diseño.
       </p>
     </div>
-    
   </article>
   <aside class="w-[800px] h-">
-    <Image src={NativaImage} alt="Habitat" class="w-full aspect-[16/9] object-fill"/>
+    <Image
+      src={NativaImage}
+      alt="Habitat"
+      class="w-full aspect-[16/9] object-fill"
+    />
   </aside>
 </section>

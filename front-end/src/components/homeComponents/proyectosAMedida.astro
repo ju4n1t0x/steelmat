@@ -3,20 +3,20 @@ import DescubrirMas from "./descubrirMas.astro";
 import CarrouselProyectosAMedida from "@/components/homeComponents/carrouselProyectosAMedida.astro";
 ---
 
-<section class="w-full h-full flex pb-20 px-40 p justify-between">
-  <article class="flex flex-col p-10">
-    <h2 class="text-[#545151] text-5xl font-bold text-left pb-15">
+<section class="w-full h-full flex py-20 px-40 p justify-between">
+  <article class="flex flex-col p-10 w-[400px]">
+    <h2 class="text-[#545151] text-4xl font-bold text-left pb-15">
       Proyectos a medida
     </h2>
-    <p class="text-lg p-2 pb-10 leading-[1.7]">
-      <strong>Proyectamos y construimos soluciones adaptadas</strong><br />
-      a cada necesidad, asegurando tiempos controlados,<br />
-      precisión constructiva y respaldo profesional.
+    <p class="text-md pb-10 leading-[1.7] text-justify">
+      <strong>Proyectamos y construimos soluciones adaptadas</strong>
+      a cada necesidad, asegurando tiempos controlados, precisión constructiva y respaldo
+      profesional.
     </p>
-    <DescubrirMas />
+    <DescubrirMas href="/proyectos-a-medida/" />
   </article>
 
-  <aside class="relative w-[900px] h-[500px]">
+  <aside class="relative w-[800px] h-[500px]">
     <CarrouselProyectosAMedida />
   </aside>
 </section>

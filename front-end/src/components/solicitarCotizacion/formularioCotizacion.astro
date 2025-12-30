@@ -1,5 +1,6 @@
 ---
-  import ModalFormularios from "../modalFormularios.astro";
+import ModalFormularios from "../modalFormularios.astro";
+import Whatsappicon from "../whatsappicon.astro";
 ---
 
 <section
@@ -199,10 +200,11 @@
           >Enviar</button
         >
       </div>
-       <ModalFormularios
-  id="modal-formularios"
-/>
-
+      <Whatsappicon
+        positionClass="absolute top-[60%] right-6"
+        stickyOnScroll={false}
+      />
+      <ModalFormularios id="modal-formularios" />
     </form>
   </div>
 </section>
@@ -210,23 +212,20 @@
 <script>
   import { FormHandler } from "../../utils/formHandler.js";
   import { cotizacionSchema } from "../../validation";
-  import {Modal} from "flowbite";
-
-
-
+  import { Modal } from "flowbite";
 
   // Inicializar el manejador de formularios cuando el DOM esté listo
   document.addEventListener("DOMContentLoaded", () => {
     const modalElement = document.getElementById("modal-formularios");
     const modal = new Modal(modalElement);
-    
+
     const formHandler = new FormHandler();
 
     formHandler.setupForm("form-cotizacion", cotizacionSchema, {
       type: "cotizacion",
       onSuccess: () => {
-modal.show();
-},
+        modal.show();
+      },
       errorMessage:
         "Hubo un error al enviar el formulario. Por favor, intentá nuevamente.",
     });

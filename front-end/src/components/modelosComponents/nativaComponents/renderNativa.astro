@@ -1,42 +1,85 @@
 ---
-import {Image} from "astro:assets";
-import RenderNativaImage from "@/assets/modelos/nativa/render-nativa.webp"
-import DescubrirMas from "@/components/homeComponents/descubrirMas.astro";
-
+import { Image } from "astro:assets";
+import RenderNativaImage from "@/assets/modelos/nativa/render-nativa.webp";
+import ModalNativa from "./modal/modalNativa.astro";
 ---
 
 <section class="w-full h-full flex py-20 px-40 justify-between">
   <article class="flex flex-col p-10 gap-5">
     <div class="flex flex-col items-start w-[385px]">
-      <h2 class="text-4xl text-gray-700 font-bold ">
+      <h2 class="text-4xl text-gray-700 font-bold">
         <strong>Modelo NATIVA 1.1</strong>
       </h2>
     </div>
     <div>
       <div>
-      <p class="text-md pt-2 leading-[1.7] text-justify w-[400px] tracking-wide pt-10">
-       <ul class="text-gray-700">Cocina</ul>
-       <ul class="text-gray-700">Estar comedor</ul>
-       <ul class="text-gray-700">Baño (1)</ul>
-       <ul class="text-gray-700">Dormitorio (1)</ul>
-       </p>
-</div>
-<div class="pt-10">
-       <span class="text-gray-800 font-bold">Precio: a consultar</span>
+        <p
+          class="text-md pt-2 leading-[1.7] text-justify w-[400px] tracking-wide pt-10"
+        >
+          <ul class="text-gray-700">Cocina</ul>
+          <ul class="text-gray-700">Estar comedor</ul>
+          <ul class="text-gray-700">Baño (1)</ul>
+          <ul class="text-gray-700">Dormitorio (1)</ul>
+        </p>
+      </div>
+      <div class="pt-10">
+        <span class="text-gray-800 font-bold">Precio: Consultar</span>
       </div>
     </div>
     <div class="flex items-center pt-10 gap-5">
       <button
         type="button"
-        class="bg-gray-300/50 focus:outline-none
-           hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
-           px-5 py-2.5"
+        class="bg-gray-300/50 text-gray-700 focus:outline-none
+       hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
+       px-5 py-2.5 flex items-center gap-2"
+        data-modal-target="modal-nativa-1-1"
+        data-modal-toggle="modal-nativa-1-1"
       >
-        <DescubrirMas href="/modelos/nativa/" text="Ver renders"/>
+        Ver renders
+        <svg class="w-5 h-5 text-gray-700">
+          <use href="/icons/sprite.svg#flecha-icon"></use>
+        </svg>
       </button>
     </div>
   </article>
   <aside class="w-[800px] h-[800px]">
-    <Image src={RenderNativaImage} alt="Nativa 1.1 - Render Interior" class="w-full h-full object-cover" loading="lazy"/>
+    <Image
+      src={RenderNativaImage}
+      alt="Nativa 1.1 - Render Interior"
+      class="w-full h-full object-cover"
+      loading="lazy"
+    />
   </aside>
+  <ModalNativa />
+  <script>
+    // Pre-cargar el módulo del carrusel
+    const carouselModulePromise = import("../../../utils/script-carrousel.js");
+    let carouselModule: Awaited<typeof carouselModulePromise> | null = null;
+
+    // Cargar módulo inmediatamente en background
+    carouselModulePromise.then((mod) => {
+      carouselModule = mod;
+    });
+
+    // Cada vez que se abre el modal, reinicializar el carrusel
+    document.addEventListener("mousedown", async (e) => {
+      const target = e.target as Element;
+      if (!target) return;
+
+      const button = target.closest('[data-modal-target="modal-nativa-1-1"]');
+
+      if (button) {
+        console.log("[Nativa 1.1] Inicializando/reiniciando carrusel...");
+        if (!carouselModule) {
+          carouselModule = await carouselModulePromise;
+        }
+        carouselModule.initCarouselSync({
+          carouselId: "nativa-1-1",
+          totalItems: 4,
+          eventName: "nativa-1-1:image-change",
+        });
+        console.log("[Nativa 1.1] Carrusel listo!");
+      }
+    });
+  </script>
 </section>

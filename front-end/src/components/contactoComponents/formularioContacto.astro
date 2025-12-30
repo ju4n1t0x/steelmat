@@ -18,75 +18,75 @@ import ModalFormularios from "../modalFormularios.astro";
       </p>
     </div>
 
-      <!-- Grilla de dos columnas -->
-    
-    <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-52 items-start max-w-7xl mx-auto px-8">
+    <!-- Grilla de dos columnas -->
 
+    <div
+      class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-52 items-start max-w-7xl mx-auto px-8"
+    >
       <!-- Columna izquierda -->
       <div>
         <form id="form-capacitaciones" class="w-full space-y-12">
+          <div>
+            <label
+              for="nombreApellido"
+              class="block mb-2 text-md font-medium text-gray-900 dark:text-[#545151]"
+              >Nombre y Apellido*</label
+            >
+            <input
+              type="text"
+              id="nombreApellido"
+              name="nombreApellido"
+              class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+              placeholder="Juan Pérez"
+              required
+            />
+          </div>
 
           <div>
             <label
-          for="nombreApellido"
-          class="block mb-2 text-md font-medium text-gray-900 dark:text-[#545151]"
-          >Nombre y Apellido*</label
-        >
-        <input
-          type="text"
-          id="nombreApellido"
-          name="nombreApellido"
-          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
-          placeholder="Juan Pérez"
-          required
-        />
+              for="email"
+              class="block mb-2 text-md font-medium text-gray-900 dark:text-[#545151]"
+              >E-mail</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+              placeholder="usuario@ejemplo.com"
+              required
+            />
           </div>
 
           <div>
-             <label
-          for="email"
-          class="block mb-2 text-md font-medium text-gray-900 dark:text-[#545151]"
-          >E-mail</label
-        >
-        <input
-          type="email"
-          id="email"
-          name="email"
-          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
-          placeholder="usuario@ejemplo.com"
-          required
-        />
-          </div>
-
-          <div>
-           <label
-          for="telefono"
-          class="block mb-2 text-md font-medium text-gray-900 dark:text-[#545151]"
-          >Teléfono*</label
-        >
-        <input
-          type="tel"
-          id="telefono"
-          name="telefono"
-          class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
-          placeholder="(123) 456-7890"
-          required
-        />
+            <label
+              for="telefono"
+              class="block mb-2 text-md font-medium text-gray-900 dark:text-[#545151]"
+              >Teléfono*</label
+            >
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              class="bg-transparent hover:bg-gray-300/50 border-0 border-b border-gray-300 text-gray-900 text-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 dark:border-gray-400 dark:placeholder-gray-400 dark:text-black dark:focus:border-gray-500 transition-colors duration-200"
+              placeholder="(123) 456-7890"
+              required
+            />
           </div>
           <div class="flex justify-center">
-          <button
-            type="submit"
-            class="bg-orange-500 hover:bg-orange-600 text-white px-12 py-3 rounded-lg text-lg "
-          >
-            Enviar
-          </button>
+            <button
+              type="submit"
+              class="bg-orange-500 hover:bg-orange-600 text-white px-16 py-2 rounded-lg text-lg"
+            >
+              Enviar
+            </button>
           </div>
         </form>
         <ModalFormularios id="modal-formularios" />
       </div>
 
       <!-- Columna derecha -->
-      <div class="pt-12 space-y-6">
+      <div class="pt-20 space-y-6">
         <Image src={ContactoImagen} alt="Steelmat" class="mb-8" />
 
         <div class="text-gray-700 space-y-2">
@@ -95,13 +95,9 @@ import ModalFormularios from "../modalFormularios.astro";
           <p>Argentina</p>
         </div>
       </div>
-
     </div>
   </div>
-  
 </section>
-
-
 
 <script>
   import { FormHandler } from "../../utils/formHandler.js";

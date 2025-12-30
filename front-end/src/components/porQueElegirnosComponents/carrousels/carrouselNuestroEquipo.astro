@@ -2,6 +2,9 @@
 import Carrousel from "../../carrouselComponents.astro";
 import NuestroEquipo1 from "@/assets/por-que-elegirnos/nuestro-equipo/nuestro-equipo-1.webp";
 import NuestroEquipo2 from "@/assets/por-que-elegirnos/nuestro-equipo/nuestro-equipo-2.webp";
+import NuestroEquipo3 from "@/assets/por-que-elegirnos/nuestro-equipo/nuestro-equipo-3.webp";
+import NuestroEquipo4 from "@/assets/por-que-elegirnos/nuestro-equipo/nuestro-equipo-4.webp";
+import NuestroEquipo5 from "@/assets/por-que-elegirnos/nuestro-equipo/nuestro-equipo-5.webp";
 
 const items = [
   {
@@ -11,6 +14,18 @@ const items = [
   {
     src: NuestroEquipo2,
     alt: "Nuestro equipo 2",
+  },
+  {
+    src: NuestroEquipo3,
+    alt: "Nuestro equipo 3",
+  },
+  {
+    src: NuestroEquipo4,
+    alt: "Nuestro equipo 4",
+  },
+  {
+    src: NuestroEquipo5,
+    alt: "Nuestro equipo 5",
   },
 ];
 ---
@@ -25,4 +40,5 @@ const items = [
   interval={3000}
   showControls={false}
   initialIndex={0}
+  imgClass="object-contain"
 />
