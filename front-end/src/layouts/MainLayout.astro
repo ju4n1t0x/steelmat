@@ -1,13 +1,30 @@
 ---
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+  canonical?: string;
+  noindex?: boolean;
+  navBarTextColor?: string;
+  iconUrl?: string;
+  textHoverColor?: string;
+}
+
 const {
-  tittle,
+  title,
   description,
+  ogImage,
+  ogType = "website",
+  canonical,
+  noindex = false,
   navBarTextColor = "text-white",
   iconUrl = "/steelmaticon.svg",
   textHoverColor = "text-white",
 } = Astro.props;
 import NavBar from "@/components/navBar.astro";
 import Footer from "@/components/footer.astro";
+import OrganizationSchema from "@/components/seo/OrganizationSchema.astro";
 import { OpenPanelComponent } from '@openpanel/astro';
 import "../styles/global.css";
 ---
@@ -19,7 +36,31 @@ import "../styles/global.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <title>{tittle}</title>
+    <title>{title}</title>
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical || Astro.url.href} />
+    
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage || `${Astro.site}steelmaticon.svg`} />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:site_name" content="SteelMat" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage || `${Astro.site}steelmaticon.svg`} />
+    
+    <!-- Robots -->
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+    
+    <OrganizationSchema />
+    
     <OpenPanelComponent
       clientId="your-client-id"
       trackScreenViews={true}

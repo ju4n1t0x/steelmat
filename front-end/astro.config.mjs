@@ -1,11 +1,16 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
+import sitemap from '@astrojs/sitemap';
 import path from 'path';
 
 export default defineConfig({
+  site: 'https://steelmat.com.ar',
+  integrations: [sitemap()],
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({
+    isReserializable: true,
+  }),
   
   vite: {
     server: {

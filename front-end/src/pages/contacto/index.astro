@@ -1,14 +1,16 @@
 ---
 import MainLayout from "@/layouts/MainLayout.astro";
 import FormularioContacto from "@/components/contactoComponents/formularioContacto.astro";
+import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema.astro";
 ---
 
 <MainLayout
-  title="Contacto"
-  description="Contacto Steel Mat"
+  title="Contacto SteelMat | Constructora Steel Frame Santa Fe"
+  description="Contactá a SteelMat para tu proyecto steel frame en Santa Fe. Dirección: 1ra Junta 2644. Tel: +549 342 552 42899. Reuniones presenciales y virtuales. ¡Te asesoramos!"
   navBarTextColor="text-gray-700"
   iconUrl="/icons/steelmat-negro.webp"
   textHoverColor="gray-700"
 >
+  <LocalBusinessSchema />
   <FormularioContacto />
 </MainLayout>
