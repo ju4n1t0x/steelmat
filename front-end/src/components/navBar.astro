@@ -3,47 +3,86 @@ interface Props {
   iconUrl?: string;
   textColor?: string;
   textHoverColor?: string;
+  menuButtonColor?: string;
+  borderMenuColor?: string;
 }
 const {
   iconUrl = "/steelmaticon.svg",
   textColor = "text-white",
   textHoverColor = "text-white",
+  menuButtonColor = "text-gray-200",
+  borderMenuColor = "border-gray-200",
 } = Astro.props as Props;
 
 const styleLinks = () =>
-  `${textColor} font-semibold hover:underline hover:decoration-${textHoverColor} hover:decoration-1`;
+  `${textColor} font-semibold hover:underline hover:decoration-${textHoverColor} hover:decoration-1 lg:text-sm xl:text-base`;
 ---
 
 <nav
-  class="absolute top-0 left-0 w-full z-20 flex justify-center items-center bg-transparent shadow-[0_9px_10px_rgba(0,0,0,0.25)] gap-x-18"
+  class="absolute top-0 left-0 w-full h-16 z-20 flex flex-wrap justify-between items-center bg-transparent shadow-[0_9px_10px_rgba(0,0,0,0.25)] px-4 lg:px-0 lg:gap-x-4 xl:gap-x-8 2xl:gap-x-18 lg:pl-4 xl:pl-10 lg:pr-6 xl:pr-12 lg:justify-center sm:px-20"
 >
   <a href="/">
-    <img src={iconUrl} alt="steelmat" class="h-10 w-auto mr-3 gap-x-18" />
+    <img
+      src={iconUrl}
+      alt="steelmat"
+      class="lg:h-8 xl:h-10 lg:w-12 xl:w-auto xl:mr-2"
+    />
   </a>
-  <ul class="flex gap-x-18 p-6">
-    <li>
-      <a href="/por-que-elegirnos/" class={styleLinks()}>¿Por qué elegirnos?</a>
-    </li>
-    <li>
-      <a href="/modelos/" class={styleLinks()}>Modelos</a>
-    </li>
-    <li>
-      <a href="/proyectos-a-medida/" class={styleLinks()}>Proyectos a medida</a>
-    </li>
-    <li>
-      <a href="/consultoria-para-profesionales/" class={styleLinks()}
-        >Consultoria para profesionales</a
-      >
-    </li>
-    <li>
-      <a href="/capacitaciones/" class={styleLinks()}>Capacitaciones</a>
-    </li>
-    <li>
-      <a
-        href="/solicitar-cotizacion"
-        class="bg-orange-500 text-white font-semibold px-3 py-2 rounded hover:bg-orange-600 transition gap-x-18"
-        >Solicitar cotizacion</a
-      >
-    </li>
-  </ul>
+  <button
+    data-collapse-toggle="navbar-dropdown"
+    type="button"
+    class={`inline-flex items-center w-10 h-10 justify-center text-md ${menuButtonColor} ${borderMenuColor} rounded-xs border lg:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary md:mr-30`}
+    aria-controls="navbar-dropdown"
+    aria-expanded="false"
+  >
+    <span class="sr-only">Open main menu</span>
+    <svg
+      class="w-6 h-6"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+      ><path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+        d="M5 7h14M5 12h14M5 17h14"></path></svg
+    >
+  </button>
+  <div class="hidden w-full lg:block lg:w-auto" id="navbar-dropdown">
+    <ul
+      class="flex p-6 lg:p-2 lg:gap-x-8 xl:gap-x-6 2xl:gap-x-18 lg:text-sm xl:text-base"
+    >
+      <li>
+        <a href="/por-que-elegirnos/" class={styleLinks()}
+          >¿Por qué elegirnos?</a
+        >
+      </li>
+      <li>
+        <a href="/modelos/" class={styleLinks()}>Modelos</a>
+      </li>
+      <li>
+        <a href="/proyectos-a-medida/" class={styleLinks()}
+          >Proyectos a medida</a
+        >
+      </li>
+      <li>
+        <a href="/consultoria-para-profesionales/" class={styleLinks()}
+          >Consultoria para profesionales</a
+        >
+      </li>
+      <li>
+        <a href="/capacitaciones/" class={styleLinks()}>Capacitaciones</a>
+      </li>
+      <li>
+        <a
+          href="/solicitar-cotizacion"
+          class="bg-orange-500 text-white font-semibold px-3 py-2 rounded hover:bg-orange-600 transition gap-x-18 whitespace-nowrap lg:text-sm xl:text-base lg:px-2 lg:py-1 xl:px-3 xl:py-2"
+          >Solicitar cotizacion</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>

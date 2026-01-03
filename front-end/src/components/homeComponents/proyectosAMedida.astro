@@ -3,20 +3,52 @@ import DescubrirMas from "./descubrirMas.astro";
 import CarrouselProyectosAMedida from "@/components/homeComponents/carrouselProyectosAMedida.astro";
 ---
 
-<section class="w-full h-full flex py-20 px-40 p justify-between">
-  <article class="flex flex-col p-10 w-[400px]">
-    <h2 class="text-[#545151] text-4xl font-bold text-left pb-15">
+<section
+  class="sm:w-[80%] md:w-[90%] lg:w-full mx-auto max-[766px]:min-h-[70vh] min-h-screen
+    grid grid-cols-1 md:grid-cols-2
+    gap-1 md:gap-1 lg:gap-6
+    items-center
+    max-[700px]:py-6 py-10
+    px-6 md:px-20 lg:px-30 xl:px-40"
+>
+  <!-- Texto completo - En móvil usamos flex interno para reordenar -->
+  <article class="flex flex-col justify-center max-w-md order-1 md:order-1">
+    <h2
+      class="text-[#545151] xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl font-bold
+        sm:pb-0 sm:pt-5 md:pt-10 md:pb-0 lg:pb-4 xl:pb-6"
+    >
       Proyectos a medida
     </h2>
-    <p class="text-md pb-10 leading-[1.7] text-justify">
+
+    <!-- En móvil: ocultar este texto, mostrar el de abajo -->
+    <div class="hidden md:block">
+      <p
+        class="xl:text-lg lg:text-md md:text-sm leading-[1.7] xl:pb-8 lg:pb-6 md:pb-5 sm:pb-10"
+      >
+        <strong>Proyectamos y construimos soluciones adaptadas</strong>
+        a cada necesidad, asegurando tiempos controlados, precisión constructiva y
+        respaldo profesional.
+      </p>
+      <DescubrirMas href="/proyectos-a-medida/" />
+    </div>
+  </article>
+
+  <!-- Carrousel - Segundo en móvil, a la derecha en desktop -->
+  <aside class="w-full order-2 md:order-2">
+    <CarrouselProyectosAMedida />
+  </aside>
+
+  <!-- Texto solo para móvil (después del carrousel) -->
+  <div class="block md:hidden order-3 max-w-md">
+    <p class="text-sm pb-2 leading-[1.7]">
       <strong>Proyectamos y construimos soluciones adaptadas</strong>
       a cada necesidad, asegurando tiempos controlados, precisión constructiva y respaldo
       profesional.
     </p>
-    <DescubrirMas href="/proyectos-a-medida/" />
-  </article>
-
-  <aside class="relative w-[800px] h-[500px]">
-    <CarrouselProyectosAMedida />
-  </aside>
+    <DescubrirMas
+      href="/proyectos-a-medida/"
+      textSize="sm:text-xs md:text-sm"
+      iconSize="sm:w-2 sm:h-2 md:w-4 md:h-4"
+    />
+  </div>
 </section>

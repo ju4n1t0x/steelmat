@@ -5,15 +5,26 @@ interface Props {
   color?: string;
   href?: string;
   text?: string;
+  textSize?: string;
+  iconSize?: string;
 }
 
 // Destructura las props
-const { class: className, color = "text-[#545151]", href = "#", text = "Descubrir más" } = Astro.props;
+const {
+  class: className,
+  color = "text-[#545151]",
+  href = "#",
+  text = "Descubrir más",
+  textSize = "text-md",
+  iconSize = "w-5 h-5",
+} = Astro.props;
 ---
 
 <a href={href} class:list={["flex hover:underline", className]}>
-  <span class={color}>{text}</span>
-  <svg class:list={["w-5 h-5 inline-block ml-2 mt-0.5", color, "fill-current"]}>
+  <span class:list={[color, textSize]}>{text}</span>
+  <svg
+    class:list={[iconSize, "inline-block ml-2 mt-0.5", color, "fill-current"]}
+  >
     <use href="/icons/sprite.svg#flecha-icon"></use>
   </svg>
 </a>

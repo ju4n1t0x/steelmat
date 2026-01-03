@@ -4,27 +4,31 @@ import Whatsappicon from "@/components/whatsappicon.astro";
 import HeroImage from "@/assets/home/SteelMat-hero.webp";
 ---
 
-<section class="relative w-full h-[730px]">
+<section class="relative md:w-full h-[730px]">
   <Image
     src={HeroImage}
     alt="Consultoria para profesionales"
     loading="eager"
     class="absolute inset-0 w-full h-full object-cover -z-10"
+    width="1920"
+    height="730"
   />
   <div
-    class="relative z-10 h-full flex flex-col justify-center gap-4 px-6 md:px-12 text-white"
+    class="relative z-10 h-full flex flex-col justify-center gap-4 px-6 sm:px-12 text-white"
   >
-    <div class="flex flex-col gap-5 pt-10 px-40">
+    <div class="flex flex-col gap-5 pt-10 md:px-40 sm:px-20 text-shadow-md">
       <div>
         <h1
-          class="text-4xl md:text-5xl font-bold leading-tight drop-shadow-2xl"
+          class="sm:text-2xl md:text-4xl lg:text-5xl font-bold leading-tight drop-shadow-2xl"
         >
           Planificas, <br />
           Confías, <br />
           Construís. <br />
         </h1>
       </div>
-      <div class="text-lg md:text-md max-w-md leading-[1.7] drop-shadow-lg">
+      <div
+        class="text-sm md:text-md lg:text-lg sm:w-md md:max-w-md sm:leading-[1.5] md:leading-[1.7] md:font-normal drop-shadow-lg text-shadow-md"
+      >
         <strong
           >Diseñamos y construimos en steel Frame, un sistema que combia
           precisión,</strong
@@ -35,12 +39,14 @@ import HeroImage from "@/assets/home/SteelMat-hero.webp";
       </div>
     </div>
 
-    <a href="/servicios"><button
-      class="mt-2 w-48 rounded-lg bg-white/80 ml-40 px-6 py-3 text-sm font-medium text-black hover:bg-orange-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-orange-300"
-      type="button"
+    <a href="/servicios"
+      ><button
+        class="mt-2 sm:w-32 md:w-48 rounded-lg bg-white/80 sm:ml-20 md:ml-40 px-6 py-3 text-sm font-medium text-black hover:bg-orange-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-orange-300"
+        type="button"
+      >
+        Ver servicios
+      </button></a
     >
-      Ver servicios
-    </button></a>
 
     <Whatsappicon />
   </div>
