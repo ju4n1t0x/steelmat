@@ -23,9 +23,10 @@ const {
   navBarTextColor = "text-white",
   iconUrl = "/steelmaticon.svg",
   textHoverColor = "text-white",
-  menuButtonColor = "text-white",
-  borderMenuColor = "border-white",
+  menuButtonColor = "text-gray-200",
+  borderMenuColor = "border-gray-200",
 } = Astro.props;
+
 import NavBar from "@/components/navBar.astro";
 import Footer from "@/components/footer.astro";
 import OrganizationSchema from "@/components/seo/OrganizationSchema.astro";
@@ -87,12 +88,7 @@ import "../styles/global.css";
   </head>
   <body>
     <header>
-      <NavBar
-        textColor={navBarTextColor}
-        menuButtonColor={menuButtonColor}
-        borderMenuColor={borderMenuColor}
-        iconUrl={iconUrl}
-      />
+      <NavBar textColor={navBarTextColor} menuButtonColor={menuButtonColor} borderMenuColor={borderMenuColor} iconUrl={iconUrl} />
     </header>
     <main>
       <slot />

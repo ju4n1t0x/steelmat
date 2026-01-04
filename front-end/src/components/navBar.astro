@@ -19,20 +19,24 @@ const styleLinks = () =>
 ---
 
 <nav
-  class="absolute top-0 left-0 w-full h-16 z-20 flex flex-wrap justify-between items-center bg-transparent shadow-[0_9px_10px_rgba(0,0,0,0.25)] px-4 lg:px-0 lg:gap-x-4 xl:gap-x-8 2xl:gap-x-18 lg:pl-4 xl:pl-10 lg:pr-6 xl:pr-12 lg:justify-center sm:px-20"
+  class="absolute top-0 left-0 w-full h-16 z-30 flex flex-wrap justify-between items-center bg-transparent shadow-[0_9px_10px_rgba(0,0,0,0.25)] px-4 lg:px-0 lg:gap-x-4 xl:gap-x-8 2xl:gap-x-18 lg:pl-4 xl:pl-10 lg:pr-6 xl:pr-12 lg:justify-center sm:px-20"
 >
+<!--logo -->
   <a href="/">
-    <img src={iconUrl} alt="steelmat" class="h-10 w-14 xl:w-auto xl:mr-4" />
+    <img src={iconUrl} alt="steelmat" class="h-10 w-14 xl:w-auto xl:mr-4 " />
   </a>
+  <!--boton hamburguesa -->
   <button
+    id="menu-toggle"
     data-collapse-toggle="navbar-dropdown"
     type="button"
-    class={`inline-flex items-center w-10 h-10 justify-center text-md ${menuButtonColor} ${borderMenuColor} rounded-xs border lg:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary md:mr-30`}
+    class={`relative z-50 inline-flex items-center w-10 h-10 justify-center text-md ${menuButtonColor} ${borderMenuColor} rounded-xs border lg:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary mr-5 sm:mr-10 md:mr-20`}
     aria-controls="navbar-dropdown"
     aria-expanded="false"
   >
     <span class="sr-only">Open main menu</span>
     <svg
+      id="icon-hamburger"
       class="w-6 h-6"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
@@ -46,18 +50,43 @@ const styleLinks = () =>
         stroke-width="2"
         d="M5 7h14M5 12h14M5 17h14"></path></svg
     >
+    <!--icono close -->
+     <svg
+      id="icon-close"
+      class="w-6 h-6 hidden"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-width="2"
+        d="M6 6l12 12M18 6l-12 12"
+      />
+    </svg>
   </button>
+
+  <!--menu desplegable -->
   <div
+  id="navbar-dropdown"
     class="hidden
-    absolute top-16 left-0
-    w-full
+    fixed
+    top-16
+    right-0
+    z-40
+    w-[50%]
+    sm:w-[30%]
+    mr-2
     bg-white
     shadow-lg
+    rounded-lg
     lg:static
     lg:block
     lg:w-auto
     lg:bg-transparent
-    lg:shadow-none"
+    lg:shadow-none
+    lg:rounded-none"
     id="navbar-dropdown"
   >
     <ul
@@ -65,12 +94,14 @@ const styleLinks = () =>
     gap-4
     p-6
     text-black
+    text-xs
+    md:text-sm
     lg:flex-row
     lg:gap-x-8
     lg:p-2
     lg:text-white"
     >
-      <li class="text-sm">
+      <li >
         <a href="/por-que-elegirnos/" class={styleLinks()}
           >¿Por qué elegirnos?</a
         >
@@ -101,3 +132,35 @@ const styleLinks = () =>
     </ul>
   </div>
 </nav>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const iconHamburger = document.getElementById("icon-hamburger");
+  const iconClose = document.getElementById("icon-close");
+  const navbarDropdown = document.getElementById("navbar-dropdown");
+
+  menuToggle?.addEventListener("click", () => {
+    const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+    
+    // Toggle icons
+    iconHamburger?.classList.toggle("hidden");
+    iconClose?.classList.toggle("hidden");
+    
+    // Toggle menu visibility
+    navbarDropdown?.classList.toggle("hidden");
+    
+    // Update aria-expanded
+    menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!menuToggle?.contains(e.target as Node) && !navbarDropdown?.contains(e.target as Node)) {
+      navbarDropdown?.classList.add("hidden");
+      iconHamburger?.classList.remove("hidden");
+      iconClose?.classList.add("hidden");
+      menuToggle?.setAttribute("aria-expanded", "false");
+    }
+  });
+</script>
+
