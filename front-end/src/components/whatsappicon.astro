@@ -1,51 +1,144 @@
 ---
 interface Props {
-  positionClass?: string;
-  stickyOnScroll?: boolean;
   width?: string;
   height?: string;
 }
-
-const {
-  positionClass = "absolute bottom-0 right-4 translate-y-1/2",
-  stickyOnScroll = true,
-  width = "w-12",
-  height = "h-12",
-} = Astro.props;
+const { width = "w-12", height = "h-12" } = Astro.props;
 ---
 
 <a
   href="https://api.whatsapp.com/send/?phone=5493425524299&text&type=phone_number&app_absent=0"
   target="_blank"
   rel="noopener noreferrer"
+  class={`whatsapp-link-selector fixed transition-all duration-500 ease-in-out`}
+  style="z-index: 99999; right: 1rem; opacity: 0;"
 >
-  <img
-    class={`whatsapp-icon-selector ${width} ${height} ${positionClass} transition-all duration-500 ease-in-out z-[9999]`}
-    src="/icons/whatsapp.webp"
-    alt="whatsapp"
-    data-sticky={String(stickyOnScroll)}
-  />
+  <img class={`${width} ${height}`} src="/icons/whatsapp.webp" alt="whatsapp" />
 </a>
-
 <script>
-  const icons = document.querySelectorAll(".whatsapp-icon-selector");
-  icons.forEach((icon) => {
-    if (icon instanceof HTMLElement && icon.dataset.sticky === "true") {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
-          icon.style.position = "fixed";
-          icon.style.bottom = "auto";
-          icon.style.top = "50%";
-          icon.style.transform = "translateY(-50%)";
-          icon.style.zIndex = "9999";
-        } else {
-          icon.style.position = "";
-          icon.style.bottom = "";
-          icon.style.top = "";
-          icon.style.transform = "";
-          icon.style.zIndex = "";
-        }
-      });
+  // Estado global para el WhatsApp icon
+  declare global {
+    interface Window {
+      __whatsappIcon?: {
+        isCustomPosition: boolean;
+        isHidden: boolean;
+        link: HTMLElement | null;
+        updatePosition: () => void;
+      };
+    }
+  }
+
+  // Inicializar estado global inmediatamente
+  window.__whatsappIcon = {
+    isCustomPosition: false,
+    isHidden: false,
+    link: null,
+    updatePosition: () => {},
+  };
+
+  // Registrar event listeners inmediatamente (antes de DOMContentLoaded)
+  window.addEventListener("whatsapp:hide", () => {
+    const state = window.__whatsappIcon;
+    if (state) {
+      state.isHidden = true;
+      state.isCustomPosition = true;
+      if (state.link) {
+        state.link.style.opacity = "0";
+        state.link.style.pointerEvents = "none";
+      }
     }
   });
+
+  window.addEventListener("whatsapp:show", () => {
+    const state = window.__whatsappIcon;
+    if (state) {
+      state.isHidden = false;
+      if (state.link) {
+        state.link.style.opacity = "1";
+        state.link.style.pointerEvents = "auto";
+      }
+    }
+  });
+
+  window.addEventListener("whatsapp:position", ((e: CustomEvent) => {
+    const state = window.__whatsappIcon;
+    if (state) {
+      state.isCustomPosition = true;
+      if (state.link) {
+        const { top, right, transform } = e.detail;
+        if (top) state.link.style.top = top;
+        if (right) state.link.style.right = right;
+        if (transform) state.link.style.transform = transform;
+        state.link.style.opacity = "1";
+      }
+    }
+  }) as EventListener);
+
+  window.addEventListener("whatsapp:reset", () => {
+    const state = window.__whatsappIcon;
+    if (state) {
+      state.isCustomPosition = false;
+      state.isHidden = false;
+      state.updatePosition();
+    }
+  });
+
+  function initWhatsappIcon() {
+    const link = document.querySelector(
+      ".whatsapp-link-selector"
+    ) as HTMLElement;
+    if (!link) return;
+
+    const state = window.__whatsappIcon!;
+    state.link = link;
+
+    // Buscar el hero (primer section dentro de main)
+    const hero = document.querySelector(
+      "main > section:first-of-type"
+    ) as HTMLElement;
+
+    function updatePosition() {
+      if (state.isCustomPosition) return;
+
+      if (!hero) {
+        link.style.top = "50%";
+        link.style.transform = "translateY(-50%)";
+        link.style.opacity = "1";
+        return;
+      }
+
+      const heroRect = hero.getBoundingClientRect();
+      const heroBottom = heroRect.bottom;
+      const scrollThreshold = 200;
+
+      if (window.scrollY > scrollThreshold) {
+        link.style.top = "50%";
+        link.style.transform = "translateY(-50%)";
+      } else {
+        link.style.top = `${heroBottom}px`;
+        link.style.transform = "translateY(-50%)";
+      }
+
+      link.style.opacity = "1";
+    }
+
+    state.updatePosition = updatePosition;
+
+    window.addEventListener("scroll", updatePosition);
+    window.addEventListener("resize", updatePosition);
+
+    // Aplicar estado según lo que se estableció antes de que el DOM cargara
+    if (state.isHidden) {
+      link.style.opacity = "0";
+      link.style.pointerEvents = "none";
+    } else if (!state.isCustomPosition) {
+      updatePosition();
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initWhatsappIcon);
+  } else {
+    initWhatsappIcon();
+  }
 </script>

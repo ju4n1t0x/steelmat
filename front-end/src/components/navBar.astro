@@ -47,8 +47,29 @@ const styleLinks = () =>
         d="M5 7h14M5 12h14M5 17h14"></path></svg
     >
   </button>
-  <div class="hidden w-full lg:block lg:w-auto" id="navbar-dropdown">
-    <ul class="flex p-6 lg:p-2 lg:gap-x-8 xl:gap-x-8 2xl:gap-x-18">
+  <div
+    class="hidden
+    absolute top-16 left-0
+    w-full
+    bg-white
+    shadow-lg
+    lg:static
+    lg:block
+    lg:w-auto
+    lg:bg-transparent
+    lg:shadow-none"
+    id="navbar-dropdown"
+  >
+    <ul
+      class="flex flex-col
+    gap-4
+    p-6
+    text-black
+    lg:flex-row
+    lg:gap-x-8
+    lg:p-2
+    lg:text-white"
+    >
       <li class="text-sm">
         <a href="/por-que-elegirnos/" class={styleLinks()}
           >¿Por qué elegirnos?</a

@@ -1,5 +1,4 @@
 ---
-import Whatsappicon from "@/components/whatsappicon.astro";
 import { Image } from "astro:assets";
 import NativaImage from "@/assets/modelos/nativa/nativa-hero.webp";
 ---
@@ -8,20 +7,19 @@ import NativaImage from "@/assets/modelos/nativa/nativa-hero.webp";
   <Image
     src={NativaImage}
     alt="Nativa"
-    class="absolute inset-0 w-full h-full  -z-10 brightness-45"
+    class="absolute inset-0 w-full h-full -z-10 brightness-45"
     loading="eager"
   />
   <div
     class="relative z-10 h-full flex flex-col justify-center items-center text-white"
   >
-    <div class="flex flex-col justify-center items-center ">
+    <div class="flex flex-col justify-center items-center">
       <h1 class="text-[8rem] xl:text-[8rem] font brightness-93 tracking-[2rem]">
         NATIVA
       </h1>
       <h2 class="xl:text-2xl max-w-xl">
-       LA FUNCIONALIDAD DE UN HOGAR, HECHO SIMPLE
+        LA FUNCIONALIDAD DE UN HOGAR, HECHO SIMPLE
       </h2>
     </div>
   </div>
-  <Whatsappicon />
 </section>

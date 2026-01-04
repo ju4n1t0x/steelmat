@@ -1,9 +1,10 @@
 ---
-import Whatsappicon from "../whatsappicon.astro";
 import ModalFormularios from "../modalFormularios.astro";
 ---
 
-<section class="relative w-full h-[100vh] flex flex-row justify-center pt-10">
+<section
+  class="relative w-full min-h-screen flex flex-row justify-center pt-32 pb-20"
+>
   <div class="flex flex-col justify-center align-center text-[#545151]">
     <h1 class="text-6xl font-extrabold leading-tight text-center">
       Dejanos tus datos, nosotros <br />
@@ -73,10 +74,6 @@ import ModalFormularios from "../modalFormularios.astro";
       <ModalFormularios id="modal-formularios" />
     </form>
   </div>
-  <Whatsappicon
-    positionClass="absolute top-[60%] right-6"
-    stickyOnScroll={false}
-  />
 </section>
 
 <script>

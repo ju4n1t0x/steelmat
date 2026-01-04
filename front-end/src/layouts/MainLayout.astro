@@ -9,6 +9,8 @@ interface Props {
   navBarTextColor?: string;
   iconUrl?: string;
   textHoverColor?: string;
+  menuButtonColor?: string;
+  borderMenuColor?: string;
 }
 
 const {
@@ -21,11 +23,14 @@ const {
   navBarTextColor = "text-white",
   iconUrl = "/steelmaticon.svg",
   textHoverColor = "text-white",
+  menuButtonColor = "text-white",
+  borderMenuColor = "border-white",
 } = Astro.props;
 import NavBar from "@/components/navBar.astro";
 import Footer from "@/components/footer.astro";
 import OrganizationSchema from "@/components/seo/OrganizationSchema.astro";
 import { OpenPanelComponent } from "@openpanel/astro";
+import Whatsappicon from "@/components/whatsappicon.astro";
 import "../styles/global.css";
 ---
 
@@ -82,13 +87,19 @@ import "../styles/global.css";
   </head>
   <body>
     <header>
-      <NavBar textColor={navBarTextColor} iconUrl={iconUrl} />
+      <NavBar
+        textColor={navBarTextColor}
+        menuButtonColor={menuButtonColor}
+        borderMenuColor={borderMenuColor}
+        iconUrl={iconUrl}
+      />
     </header>
     <main>
       <slot />
     </main>
 
     <Footer />
+    <Whatsappicon width="lg:w-12 md:w-10 w-8" height="lg:h-12 md:h-10 w-8" />
     <script>
       import "flowbite";
     </script>
