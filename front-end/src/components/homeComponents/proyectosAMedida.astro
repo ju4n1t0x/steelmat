@@ -4,7 +4,7 @@ import CarrouselProyectosAMedida from "@/components/homeComponents/carrouselProy
 ---
 
 <section
-  class="sm:w-[80%] md:w-[90%] lg:w-full mx-auto max-[766px]:min-h-[70vh] min-h-screen
+  class="sm:w-[80%] md:w-[90%] lg:w-full mx-auto mx-[400px]:min-h-[50vh] max-[766px]:min-h-[70vh] min-h-screen
     grid grid-cols-1 md:grid-cols-2
     gap-1 md:gap-1 lg:gap-6
     items-center
@@ -23,13 +23,17 @@ import CarrouselProyectosAMedida from "@/components/homeComponents/carrouselProy
     <!-- En móvil: ocultar este texto, mostrar el de abajo -->
     <div class="hidden md:block">
       <p
-        class="xl:text-lg lg:text-md md:text-sm leading-[1.7] xl:pb-8 lg:pb-6 md:pb-5 sm:pb-10"
+        class="xl:text-lg lg:text-md text-sm leading-[1.7] xl:pb-8 lg:pb-6 md:pb-5 sm:pb-10"
       >
         <strong>Proyectamos y construimos soluciones adaptadas</strong>
         a cada necesidad, asegurando tiempos controlados, precisión constructiva y
         respaldo profesional.
       </p>
-      <DescubrirMas href="/proyectos-a-medida/" />
+      <DescubrirMas
+        href="/proyectos-a-medida/"
+        textSize="text-xs lg:text-sm"
+        iconSize="w-3 h-3 lg:w-4 lg:h-4"
+      />
     </div>
   </article>
 
@@ -40,15 +44,15 @@ import CarrouselProyectosAMedida from "@/components/homeComponents/carrouselProy
 
   <!-- Texto solo para móvil (después del carrousel) -->
   <div class="block md:hidden order-3 max-w-md">
-    <p class="text-sm pb-2 leading-[1.7]">
+    <p class="text-xs lg:text-sm pb-1 lg:pb-2 leading-[1.7]">
       <strong>Proyectamos y construimos soluciones adaptadas</strong>
       a cada necesidad, asegurando tiempos controlados, precisión constructiva y respaldo
       profesional.
     </p>
     <DescubrirMas
       href="/proyectos-a-medida/"
-      textSize="sm:text-xs md:text-sm"
-      iconSize="sm:w-2 sm:h-2 md:w-4 md:h-4"
+      textSize="text-xs lg:text-sm"
+      iconSize="w-3 h-3 lg:w-4 lg:h-4"
     />
   </div>
 </section>

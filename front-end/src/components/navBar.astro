@@ -22,11 +22,7 @@ const styleLinks = () =>
   class="absolute top-0 left-0 w-full h-16 z-20 flex flex-wrap justify-between items-center bg-transparent shadow-[0_9px_10px_rgba(0,0,0,0.25)] px-4 lg:px-0 lg:gap-x-4 xl:gap-x-8 2xl:gap-x-18 lg:pl-4 xl:pl-10 lg:pr-6 xl:pr-12 lg:justify-center sm:px-20"
 >
   <a href="/">
-    <img
-      src={iconUrl}
-      alt="steelmat"
-      class="lg:h-8 xl:h-10 lg:w-12 xl:w-auto xl:mr-2"
-    />
+    <img src={iconUrl} alt="steelmat" class="h-10 w-14 xl:w-auto xl:mr-4" />
   </a>
   <button
     data-collapse-toggle="navbar-dropdown"
@@ -52,10 +48,8 @@ const styleLinks = () =>
     >
   </button>
   <div class="hidden w-full lg:block lg:w-auto" id="navbar-dropdown">
-    <ul
-      class="flex p-6 lg:p-2 lg:gap-x-8 xl:gap-x-6 2xl:gap-x-18 lg:text-sm xl:text-base"
-    >
-      <li>
+    <ul class="flex p-6 lg:p-2 lg:gap-x-8 xl:gap-x-8 2xl:gap-x-18">
+      <li class="text-sm">
         <a href="/por-que-elegirnos/" class={styleLinks()}
           >¿Por qué elegirnos?</a
         >
@@ -79,7 +73,7 @@ const styleLinks = () =>
       <li>
         <a
           href="/solicitar-cotizacion"
-          class="bg-orange-500 text-white font-semibold px-3 py-2 rounded hover:bg-orange-600 transition gap-x-18 whitespace-nowrap lg:text-sm xl:text-base lg:px-2 lg:py-1 xl:px-3 xl:py-2"
+          class="bg-orange-500 text-white font-semibold px-3 py-2 rounded hover:bg-orange-600 transition gap-x-18 whitespace-nowrap lg:text-sm xl:text-md lg:px-2 lg:py-1 xl:px-3 xl:py-2 xl:ml-15"
           >Solicitar cotizacion</a
         >
       </li>

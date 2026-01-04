@@ -25,7 +25,7 @@ const {
 import NavBar from "@/components/navBar.astro";
 import Footer from "@/components/footer.astro";
 import OrganizationSchema from "@/components/seo/OrganizationSchema.astro";
-import { OpenPanelComponent } from '@openpanel/astro';
+import { OpenPanelComponent } from "@openpanel/astro";
 import "../styles/global.css";
 ---
 
@@ -37,39 +37,47 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href={canonical || Astro.url.href} />
-    
+
     <!-- Open Graph (Facebook, LinkedIn) -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage || `${Astro.site}steelmaticon.svg`} />
+    <meta
+      property="og:image"
+      content={ogImage || `${Astro.site}steelmaticon.svg`}
+    />
     <meta property="og:locale" content="es_AR" />
     <meta property="og:site_name" content="SteelMat" />
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage || `${Astro.site}steelmaticon.svg`} />
-    
+    <meta
+      name="twitter:image"
+      content={ogImage || `${Astro.site}steelmaticon.svg`}
+    />
+
     <!-- Robots -->
-    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
-    
+    <meta
+      name="robots"
+      content={noindex ? "noindex, nofollow" : "index, follow"}
+    />
+
     <OrganizationSchema />
-    
+
     <OpenPanelComponent
       clientId="your-client-id"
       trackScreenViews={true}
-       trackAttributes={true}
-       trackOutgoingLinks={true}
-       apiUrl="https://steelmat.com.ar"
-       cdnUrl="https://openpanel.dev/op1.js"
-       profileId="37713879"
-       
+      trackAttributes={true}
+      trackOutgoingLinks={true}
+      apiUrl="https://steelmat.com.ar"
+      cdnUrl="https://openpanel.dev/op1.js"
+      profileId="37713879"
     />
   </head>
   <body>

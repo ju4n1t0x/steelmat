@@ -2,11 +2,15 @@
 interface Props {
   positionClass?: string;
   stickyOnScroll?: boolean;
+  width?: string;
+  height?: string;
 }
 
 const {
   positionClass = "absolute bottom-0 right-4 translate-y-1/2",
   stickyOnScroll = true,
+  width = "w-12",
+  height = "h-12",
 } = Astro.props;
 ---
 
@@ -16,7 +20,7 @@ const {
   rel="noopener noreferrer"
 >
   <img
-    class={`whatsapp-icon-selector w-12 h-12 ${positionClass} transition-all duration-500 ease-in-out z-[9999]`}
+    class={`whatsapp-icon-selector ${width} ${height} ${positionClass} transition-all duration-500 ease-in-out z-[9999]`}
     src="/icons/whatsapp.webp"
     alt="whatsapp"
     data-sticky={String(stickyOnScroll)}
