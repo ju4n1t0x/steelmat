@@ -2,27 +2,51 @@
 import CarrouselNuestroEquipo from "@/components/porQueElegirnosComponents/carrousels/carrouselNuestroEquipo.astro";
 ---
 
-<section class="w-full h-full flex py-10 px-40 justify-between">
-  <article class="flex flex-col p-10 gap-10 w-[400px]">
-    <div class="flex items-center gap-2">
-      <svg class="h-[70px] w-[60px] fill-gray-600"
+
+
+<section
+  class="sm:w-[80%] md:w-[90%] lg:w-full mx-auto mx-[400px]:min-h-[50vh] max-[766px]:min-h-[50vh] min-h-[50vh]
+    grid grid-cols-1 md:grid-cols-2
+    gap-1 md:gap-1 lg:gap-6
+    items-center
+    max-[700px]:py-6 py-10
+    px-6 md:px-20 lg:px-30 xl:px-40"
+>
+  <!-- Texto completo - En móvil usamos flex interno para reordenar -->
+  <article class="flex flex-col justify-center max-w-md order-1 md:order-1 items-center md:items-start text-center md:text-left mx-auto md:mx-0">
+     <div class="flex flex-row md:flex-row items-center gap-2 sm:pb-0 sm:pt-5 md:pt-10 md:pb-0 lg:pb-4 xl:pb-6">
+      <svg class=" h-[40px] w-[30px] lg:h-[60px] lg:w-[50px] xl:h-[70px] xl:w-[60px] fill-gray-600"
         ><use href="/icons/sprite.svg#construccion-icon"></use>
       </svg>
-      <h2 class="text-3xl pl-5 text-gray-600">
-        Nuestro equipo <br /> marca diferencia
-      </h2>
-    </div>
-    <div>
-      <p class="text-lg pt-5 leading-[1.7] text-justify">
-        Con sede en Santa Fe, combinamos una sólida infraestructura comercial,
+    <h2
+      class="text-[#545151] md:ml-5 lg:text-2xl md:text-xl sm:text-lg font-bold text-center md:text-left
+        "
+    >
+      Nuestro equipo <br /> marca diferencia
+    </h2>
+  </div>
+    <!-- En móvil: ocultar este texto, mostrar el de abajo -->
+    <div class="mt-5 md:mt-0 block">
+      <p
+        class="lg:text-md md:text-sm text-xs leading-[1.7] xl:pb-8 lg:pb-6 md:pb-5 sm:pb-10 text-center md:text-justify"
+      >
+      Con sede en Santa Fe, combinamos una sólida infraestructura comercial,
         de ingeniería y logística con una experiencia comprobada en el sector.
         Nuestro equipo de profesionales altamente capacitado y comprometido,
-        <br />trabaja con un enfoque en valores,
-        <br />eficiencia y excelencia.
+        trabaja con un enfoque en valores,
+        eficiencia y excelencia.
       </p>
+      
     </div>
   </article>
-  <aside class="w-[800px]">
+
+  <!-- Carrousel - Segundo en móvil, a la derecha en desktop -->
+  <aside class="w-full order-3 ">
     <CarrouselNuestroEquipo />
   </aside>
+
+ 
+   
+  </div>
 </section>
+
