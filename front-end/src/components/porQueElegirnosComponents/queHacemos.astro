@@ -11,48 +11,35 @@ import CarrouselQueHacemos from "./carrousels/carrouselQueHacemos.astro";
     px-6 md:px-20 lg:px-30 xl:px-40"
 >
   <!-- Texto completo - En móvil usamos flex interno para reordenar -->
-  <article class="flex flex-col justify-center max-w-md order-1 md:order-1">
-    <h2
-      class="text-[#545151] xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl font-bold
-        sm:pb-0 sm:pt-5 md:pt-10 md:pb-0 lg:pb-4 xl:pb-6"
+  <article
+    class="flex flex-col justify-center max-w-md order-1 md:order-1 items-start text-left"
+  >
+    <div
+      class="flex flex-row items-center gap-2 sm:pb-0 sm:pt-5 md:pt-10 md:pb-0 lg:pb-4 xl:pb-6"
     >
-     Somos una empresa líder en soluciones innovadoras de construcción.
-    </h2>
-
+      <h2 class="text-[#545151] lg:text-2xl text-xl font-bold text-left">
+        Somos una empresa líder en soluciones innovadoras de construcción.
+      </h2>
+    </div>
     <!-- En móvil: ocultar este texto, mostrar el de abajo -->
-    <div class="hidden md:block">
+    <div class="mt-5 md:mt-0 block">
       <p
-        class="xl:text-lg lg:text-md text-sm leading-[1.7] xl:pb-8 lg:pb-6 md:pb-5 sm:pb-10"
+        class="lg:text-md md:text-sm text-xs leading-[1.7] xl:pb-8 lg:pb-6 md:pb-5 sm:pb-10 text-justify"
       >
-       <strong> Hacemos simple lo complejo.</strong>
-      Unimos la precisión del sistema Steel Frame con un <strong
-        >equipo profesional
-      </strong>que te guía paso a paso. Utilizamos la planificación, el control
-      técnico y, materiales certificados, logrando <strong
-        >obras más rápidas, limpias y seguras.</strong
-      >
+        ¿Qué hacemos?<br />
+        <strong> Hacemos simple lo complejo.</strong>
+        Unimos la precisión del sistema Steel Frame con un <strong
+          >equipo profesional
+        </strong>que te guía paso a paso. Utilizamos la planificación, el
+        control técnico y, materiales certificados, logrando <strong
+          >obras más rápidas, limpias y seguras.</strong
+        >
       </p>
-      
     </div>
   </article>
 
   <!-- Carrousel - Segundo en móvil, a la derecha en desktop -->
-  <aside class="w-full order-2 md:order-2">
-   <CarrouselQueHacemos />
+  <aside class="w-full order-3 md:ml-4">
+    <CarrouselQueHacemos />
   </aside>
-
-  <!-- Texto solo para móvil (después del carrousel) -->
-  <div class="block md:hidden order-3 max-w-md">
-    <p class="text-xs lg:text-sm pb-1 lg:pb-2 leading-[1.7]">
-      <strong> Hacemos simple lo complejo.</strong>
-      Unimos la precisión del sistema Steel Frame con un <strong
-        >equipo profesional
-      </strong>que te guía paso a paso. Utilizamos la planificación, el control
-      técnico y, materiales certificados, logrando <strong
-        >obras más rápidas, limpias y seguras.</strong
-      >
-    </p>
-   
-  </div>
 </section>
-

@@ -4,53 +4,73 @@ import { Image } from "astro:assets";
 import ObraGris1 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-1.webp";
 ---
 
-<section class="flex pb-20 px-40 justify-between bg-[#EFEDED]">
-  <article class="flex flex-col p-10 gap-10">
-    <h2 class="text-2xl text-gray-600">
+<section
+  class="w-[100%] lg:w-full mx-auto min-h-[50vh]
+    grid grid-cols-1 md:grid-cols-2
+    gap-1 md:gap-1 lg:gap-6
+    items-center
+    max-[700px]:py-6 py-10
+    px-6 md:px-20 lg:px-30 xl:px-40
+    bg-[#EFEDED]"
+>
+  <!-- Texto completo -->
+  <article
+    class="flex flex-col justify-center max-w-md order-1 md:order-1 items-start text-left"
+  >
+    <h2
+      class="text-[#545151] xl:text-2xl lg:text-xl text-md font-bold text-left sm:pb-0 sm:pt-5 md:pt-10 pb-2 lg:pb-4 xl:pb-6"
+    >
       Modalidad de construcción<br />
       <strong>Obra gris</strong>
     </h2>
-    <p class="text-lg leading-[1.7] text-gray-600">
-      La obra Gris es una <strong>obra "sin terminaciones",</strong><br />
-      que abarca el 80 % del proyecto.
-    </p>
-    <ul class="text-lg leading-[1.7] text-gray-600 list-disc list-inside ml-5">
-      <p>Consiste en:</p>
-      <li>Instalaciones Bajo Platea</li>
-      <li>Platea de H°A° y vigas según calculo</li>
-      <li>Panelizado y montaje Steel Frame</li>
-      <li>Rigidización OSB normalizado</li>
-      <li>Cubierta y zingueria</li>
-      <li>Aislaciones</li>
-      <li>Sistema EIFS</li>
-      <li>Instalaciones</li>
-      <li>Emplacados interiores</li>
-      <li>Cielorrasos</li>
-      <li>Colocación de premarcos</li>
-    </ul>
+    <div class="mt-0 md:mt-0 block">
+      <p
+        class="lg:text-md md:text-sm text-xs leading-[1.7] lg:pb-4 text-justify text-gray-600"
+      >
+        La obra Gris es una <strong>obra "sin terminaciones",</strong> que abarca
+        el 80 % del proyecto.
+      </p>
+      <p class="lg:text-md md:text-sm text-xs leading-[1.7] pb-2 text-gray-600">
+        Consiste en:
+      </p>
+      <ul
+        class="xl:text-lg lg:text-sm text-xs leading-[1.7] text-gray-600 list-disc list-inside ml-5 xl:pb-8 lg:pb-6 md:pb-5 sm:pb-10"
+      >
+        <li>Instalaciones Bajo Platea</li>
+        <li>Platea de H°A° y vigas según calculo</li>
+        <li>Panelizado y montaje Steel Frame</li>
+        <li>Rigidización OSB normalizado</li>
+        <li>Cubierta y zingueria</li>
+        <li>Aislaciones</li>
+        <li>Sistema EIFS</li>
+        <li>Instalaciones</li>
+        <li>Emplacados interiores</li>
+        <li>Cielorrasos</li>
+        <li>Colocación de premarcos</li>
+      </ul>
+    </div>
   </article>
-  <aside
-    class="relative w-[800px] h-[550px] mt-15 rounded-lg overflow-hidden flex items-center justify-center"
-  >
-    <div class="w-[800px] h-[550px]">
+
+  <!-- Imagen con botón de modal -->
+  <aside class="w-full order-3 relative">
+    <div class="relative w-full aspect-[800/550] rounded-lg overflow-hidden">
       <Image
         src={ObraGris1}
         alt="Obra Gris"
-        class="block w-[800px] h-[550px] object-cover rounded-lg object-contain"
-        loading="eager"
+        class="block w-full h-full object-cover rounded-lg"
+        loading="lazy"
       />
       <!-- Modal toggle -->
       <button
         data-modal-target="static-modal"
         data-modal-toggle="static-modal"
-        class="absolute bottom-1 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         type="button"
       >
         Toggle modal
       </button>
-
-      <!-- Main modal -->
-      <ModalObraGris />
     </div>
+    <!-- Main modal -->
+    <ModalObraGris />
   </aside>
 </section>

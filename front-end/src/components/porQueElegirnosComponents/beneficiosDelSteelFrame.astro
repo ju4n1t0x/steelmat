@@ -2,21 +2,26 @@
 
 ---
 
-<section class="sm:w-[80%] md:w-[90%] lg:w-full mx-auto mx-[400px]:min-h-[50vh] max-[766px]:min-h-[50vh] min-h-[50vh]
-grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 py-10 lg:py-20 px-6 md:px-20 lg:px-40">
-  
+<section
+  class="sm:w-[80%] md:w-[90%] lg:w-full mx-auto mx-[400px]:min-h-[50vh] max-[766px]:min-h-[50vh] min-h-[50vh]
+grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 py-10 lg:py-20 px-6 md:px-20 lg:px-40 items-center"
+>
   <!-- Algunos beneficios -->
-  <article class="flex flex-col gap-4 md:justify-center items-center">
-    <div class="flex items-center gap-3 sm:gap-5 md:gap-7">
-      <svg class="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 flex-shrink-0">
+  <article class="flex flex-col gap-4 items-start justify-center h-full">
+    <div class="flex items-start gap-3 sm:gap-5 md:gap-7">
+      <svg class="w-14 h-14 lg:w-16 lg:h-16 flex-shrink-0 mr-4">
         <use href="/icons/sprite.svg#beneficios-icon"></use>
       </svg>
-      <h2 class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600">
+      <h2
+        class="text-left text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-600"
+      >
         Algunos beneficios <br />
         del Steel Frame
       </h2>
     </div>
-    <p class="text-xs sm:text-sm lg:text-base leading-[1.7] text-justify max-w-md">
+    <p
+      class="text-xs sm:text-sm lg:text-base leading-[1.7] text-justify max-w-md"
+    >
       Desde el 2018 se reconoce al Steel Frame como sistema de construcción
       tradicional, según el Ministerio del Interior, Obras Públicas y Vivienda,
       (Resolución 5-E2018).
@@ -25,32 +30,42 @@ grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 py-10 lg:py-20 px-6 md:px-20 lg:
 
   <!-- Características Steel -->
   <article class="">
-    <div class="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-6 lg:gap-10">
-    <div class="flex flex-col items-center text-center gap-2">
-      <svg class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16">
-        <use href="/icons/sprite.svg#tiempoDeObra"></use>
-      </svg>
-      <h3 class="text-xs md:text-sm xl:text-md font-semibold">Menor tiempo de obra</h3>
-      <p class="text-xs lg:text-sm">Entre 40% y 60%</p>
-    </div>
+    <div
+      class="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-6 lg:gap-10"
+    >
+      <div class="flex flex-col items-center text-center gap-2">
+        <svg class="w-14 h-14 md:w-14 md:h-14 lg:w-16 lg:h-16">
+          <use href="/icons/sprite.svg#tiempoDeObra"></use>
+        </svg>
+        <h3 class="text-xs md:text-sm xl:text-md font-semibold">
+          Menor tiempo de obra
+        </h3>
+        <p class="text-xs lg:text-sm">Entre 40% y 60%</p>
+      </div>
 
-    <div class="flex flex-col items-center text-center gap-2">
-      <svg class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16">
-        <use href="/icons/sprite.svg#presupuesto"></use>
-      </svg>
-      <h3 class="text-xs md:text-sm  xl:text-md font-semibold">Certeza presupuestaria</h3>
-      <p class="text-xs lg:text-sm">Datos exactos de contratación</p>
-    </div>
-  
+      <div class="flex flex-col items-center text-center gap-2">
+        <svg class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16">
+          <use href="/icons/sprite.svg#presupuesto"></use>
+        </svg>
+        <h3 class="text-xs md:text-sm xl:text-md font-semibold">
+          Certeza presupuestaria
+        </h3>
+        <p class="text-xs lg:text-sm">Datos exactos de contratación</p>
+      </div>
 
-    <div class="flex flex-col items-center text-center gap-2 col-span-2 md:col-span-1">
-      <svg class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16">
-        <use href="/icons/sprite.svg#eficiencia"></use>
-      </svg>
-      <h3 class="text-xs md:text-sm xl:text-md font-semibold">
-        Mayor ahorro energético y confort térmico
-      </h3>
-      <p class="text-xs lg:text-sm">Menor consumo en refrigeración y calefacción</p>
+      <div
+        class="flex flex-col items-center text-center gap-2 col-span-2 md:col-span-1"
+      >
+        <svg class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16">
+          <use href="/icons/sprite.svg#eficiencia"></use>
+        </svg>
+        <h3 class="text-xs md:text-sm xl:text-md font-semibold">
+          Mayor ahorro energético y confort térmico
+        </h3>
+        <p class="text-xs lg:text-sm">
+          Menor consumo en refrigeración y calefacción
+        </p>
+      </div>
     </div>
   </article>
 </section>
