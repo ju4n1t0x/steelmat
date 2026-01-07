@@ -3,45 +3,102 @@ import CarrouselNativa from "./carrousel-modelos/carrouselNativa.astro";
 import DescubrirMas from "@/components/homeComponents/descubrirMas.astro";
 ---
 
-<section class="w-full h-full flex py-20 px-40 justify-between">
-  <article class="flex flex-col p-10 gap-5">
-    <div class="flex flex-col items-start">
-      <h2 class="text-4xl text-gray-500 font-sans">Modelo</h2>
-      <h2 class="text-4xl text-gray-600 text-bold font-extrabold">NATIVA</h2>
-    </div>
-    <div class="w-[300px]">
-      <p class="text-md pt-2 text-justify text-gray-700">
-        La funcionalidad de un hogar, hecho simple. 
-        <i>NATIVA,</i> evoca lo <strong
-          >funcional, lo cercano,
-          lo simple pero con identidad.
-        </strong>Ideal para 
-        quienes buscan una vivienda funcional 
-        y completa
+<section
+  class="sm:w-[80%] md:w-[90%] lg:w-full mx-auto min-h-[auto]
+    grid grid-cols-1 md:grid-cols-2
+    gap-0 md:gap-1 lg:gap-6
+    mt-5
+    md:items-center
+    md:py-6
+    px-6 md:px-20 lg:px-30 xl:px-40
+    mb-10"
+>
+  <!-- Texto completo - En móvil usamos flex interno para reordenar -->
+  <article class="flex flex-col justify-center max-w-md order-1 md:order-1">
+    <h2
+      class="text-[#545151] xl:text-3xl lg:text-2xl md:text-xl text-xl font-bold md:pt-10 md:pb-0 lg:pb-1 xl:pb-2"
+    >
+      Modelo
+    </h2>
+    <h2
+      class="xl:text-3xl lg:text-2xl text-xl text-gray-600 text-bold font-extrabold"
+    >
+      NATIVA
+    </h2>
+
+    <!-- En móvil: ocultar este texto, mostrar el de abajo -->
+    <div class="hidden md:block">
+      <p
+        class="xl:text-md lg:text-sm text-xs leading-[1.7] xl:pb-5 lg:pb-4 md:pb-3"
+      >
+        La funcionalidad de un hogar, hecho simple.
+        <i>NATIVA</i> evoca lo <strong
+          >funcional, lo cercano, lo simple pero con identidad.</strong
+        > Ideal para quienes buscan una vivienda funcional y completa.
       </p>
+      <div>
+        <ul class="md:text-sm text-xs text-gray-700">
+          <li>Listo para habitar en 3 meses</li>
+          <li>Adaptable y proyectado al futuro</li>
+          <li><strong>Apto crédito hipotecario</strong></li>
+        </ul>
+      </div>
+      <div>
+        <span class="md:text-sm text-xs text-gray-700"
+          >Entrega: <strong>Llave en mano</strong></span
+        >
+      </div>
+      <div class="flex items-center gap-5 md:mt-2">
+        <button
+          type="button"
+          class="bg-gray-300/50 md:text-sm text-xs focus:outline-none
+           hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg
+           px-5 py-2.5"
+        >
+          <DescubrirMas href="/modelos/nativa/" />
+        </button>
+      </div>
     </div>
+  </article>
+
+  <!-- Carrousel - Segundo en móvil, a la derecha en desktop -->
+  <aside class="w-full order-2 md:order-2">
+    <CarrouselNativa />
+  </aside>
+
+  <!-- Texto solo para móvil (después del carrousel) -->
+  <div class="block md:hidden order-3 max-w-md">
+    <p class="text-xs leading-[1.7]">
+      La funcionalidad de un hogar, hecho simple.
+      <i>NATIVA</i> evoca lo <strong
+        >funcional, lo cercano, lo simple pero con identidad.</strong
+      > Ideal para quienes buscan una vivienda funcional y completa.
+    </p>
     <div>
-      <ul class="text-sm text-gray-700">
+      <ul class="text-xs text-gray-700">
         <li>Listo para habitar en 3 meses</li>
         <li>Adaptable y proyectado al futuro</li>
         <li><strong>Apto crédito hipotecario</strong></li>
       </ul>
     </div>
     <div>
-      <span class="text-sm text-gray-700">Entrega: <strong>Llave en mano</strong></span>
+      <span class="text-xs text-gray-700"
+        >Entrega: <strong>Llave en mano</strong></span
+      >
     </div>
-    <div class="flex items-center gap-5">
+    <div class="flex items-center gap-5 mt-2">
       <button
         type="button"
         class="bg-gray-300/50 focus:outline-none
-           hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
-           px-5 py-2.5"
+           hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg
+           px-3 py-1"
       >
-        <DescubrirMas href="/modelos/nativa/" />
+        <DescubrirMas
+          href="/modelos/nativa/"
+          textSize="text-xs md:text-sm"
+          iconSize="w-3 h-3 lg:w-4 lg:h-4"
+        />
       </button>
     </div>
-  </article>
-  <aside class="w-[800px]">
-    <CarrouselNativa />
-  </aside>
+  </div>
 </section>
