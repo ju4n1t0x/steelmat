@@ -3,21 +3,25 @@ import { Image } from "astro:assets";
 import NativaImage from "@/assets/modelos/nativa/nativa-hero.webp";
 ---
 
-<section class="relative w-full mt-18 h-[calc(730px-6rem)]">
+<section class="relative w-full mt-16 h-[550px] sm:h-[650px] md:h-[730px]">
   <Image
     src={NativaImage}
     alt="Nativa"
     class="absolute inset-0 w-full h-full -z-10 brightness-45"
     loading="eager"
+    width="1920"
+    height="730"
   />
   <div
     class="relative z-10 h-full flex flex-col justify-center items-center text-white"
   >
     <div class="flex flex-col justify-center items-center">
-      <h1 class="text-[8rem] xl:text-[8rem] font brightness-93 tracking-[2rem]">
+      <h1
+        class="text-[2rem] sm:text-[4rem] md:text-[7rem] xl:text-[9rem] font-bold sm:font-normal brightness-93 pl-5 tracking-[2rem]"
+      >
         NATIVA
       </h1>
-      <h2 class="xl:text-2xl max-w-xl">
+      <h2 class="xl:text-2xl max-w-xl sm:text-md md:text-xl sm:text-md text-xs">
         LA FUNCIONALIDAD DE UN HOGAR, HECHO SIMPLE
       </h2>
     </div>

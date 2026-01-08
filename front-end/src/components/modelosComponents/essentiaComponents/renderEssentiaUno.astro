@@ -4,16 +4,24 @@ import RenderEssentiaImage from "@/assets/modelos/essentia/render-essentia-1.web
 import ModalEssentiaUno from "./modales/modalEssentiaUno/modalEssentiaUno.astro";
 ---
 
-<section class="w-full h-full flex py-20 px-40 justify-between">
-  <article class="flex flex-col p-10 gap-5">
-    <div class="flex flex-col items-start w-[385px]">
-      <h2 class="text-4xl text-gray-700 font-bold">Modelo ESSENTIA 1.1</h2>
+<section
+  class="w-full mx-auto
+    grid grid-cols-1 md:grid-cols-2
+    gap-6 md:gap-10
+    items-center
+    py-15 md:py-20
+    px-6 md:px-20 lg:px-40"
+>
+  <!-- Título y texto - order-1 en todas las resoluciones -->
+  <article class="flex flex-col gap-5 order-1 md:order-1 max-w-md">
+    <div class="flex flex-col items-start">
+      <h2 class="text-2xl md:text-2xl lg:text-3xl text-gray-700 font-bold">
+        <strong>Modelo ESSENTIA 1.1</strong>
+      </h2>
     </div>
     <div>
-      <div>
-        <p
-          class="text-md leading-[1.7] text-justify w-[400px] tracking-wide pt-10"
-        >
+      <div class="pt-3 lg:pt-10">
+        <p class="text-md leading-[1.7] text-justify tracking-wide">
           <ul class="text-gray-700">Cocina Comedor</ul>
           <ul class="text-gray-700">Sala de estar</ul>
           <ul class="text-gray-700">Baño (1)</ul>
@@ -21,17 +29,17 @@ import ModalEssentiaUno from "./modales/modalEssentiaUno/modalEssentiaUno.astro"
           <ul class="text-gray-700">Cochera</ul>
         </p>
       </div>
-      <div class="pt-10">
+      <div class="pt-3 lg:pt-10">
         <span class="text-gray-800 font-bold">Precio: Consultar</span>
       </div>
     </div>
-
-    <div class="flex items-center pt-10 gap-5">
+    <!-- Botón - solo visible en md+ (dentro del artículo) -->
+    <div class="hidden md:flex items-center pt-3 lg:pt-10 gap-5">
       <button
         type="button"
         class="bg-gray-300/50 text-gray-700 focus:outline-none
-       hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
-       px-5 py-2.5 flex items-center gap-2"
+          hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
+          px-5 py-2.5 flex items-center gap-2"
         data-modal-target="modal-essentia-1-1"
         data-modal-toggle="modal-essentia-1-1"
       >
@@ -42,39 +50,64 @@ import ModalEssentiaUno from "./modales/modalEssentiaUno/modalEssentiaUno.astro"
       </button>
     </div>
   </article>
-  <aside class="w-[800px] h-[600px]">
-    <Image src={RenderEssentiaImage} alt="Essentia" class="w-full h-full" />
+
+  <!-- Imagen - order-2 en todas las resoluciones -->
+  <aside class="w-full order-2 md:order-2">
+    <Image
+      src={RenderEssentiaImage}
+      alt="Essentia"
+      class="w-full h-auto"
+      loading="lazy"
+    />
   </aside>
-</section>
-<ModalEssentiaUno />
-<script>
-  // Pre-cargar el módulo del carrusel
-  const carouselModulePromise = import("../../../utils/script-carrousel.js");
-  let carouselModule: Awaited<typeof carouselModulePromise> | null = null;
 
-  // Cargar módulo inmediatamente en background
-  carouselModulePromise.then((mod) => {
-    carouselModule = mod;
-  });
+  <!-- Botón - solo visible en < md (después de la imagen, alineado izquierda) -->
+  <div class="flex md:hidden items-start order-3 pt-2">
+    <button
+      type="button"
+      class="bg-gray-300/50 text-gray-700 focus:outline-none
+        hover:bg-gray-200/50 focus:ring-3 focus:ring-gray-300 font-medium rounded-lg text-sm
+        px-5 py-2.5 flex items-center gap-2"
+      data-modal-target="modal-essentia-1-1"
+      data-modal-toggle="modal-essentia-1-1"
+    >
+      Ver renders
+      <svg class="w-5 h-5 text-gray-700">
+        <use href="/icons/sprite.svg#flecha-icon"></use>
+      </svg>
+    </button>
+  </div>
 
-  // Cada vez que se abre el modal, reinicializar el carrusel
-  document.addEventListener("mousedown", async (e) => {
-    const target = e.target as Element;
-    if (!target) return;
+  <ModalEssentiaUno />
+  <script>
+    // Pre-cargar el módulo del carrusel
+    const carouselModulePromise = import("../../../utils/script-carrousel.js");
+    let carouselModule: Awaited<typeof carouselModulePromise> | null = null;
 
-    const button = target.closest('[data-modal-target="modal-essentia-1-1"]');
+    // Cargar módulo inmediatamente en background
+    carouselModulePromise.then((mod) => {
+      carouselModule = mod;
+    });
 
-    if (button) {
-      console.log("[Essentia 1.1] Inicializando/reiniciando carrusel...");
-      if (!carouselModule) {
-        carouselModule = await carouselModulePromise;
+    // Cada vez que se abre el modal, reinicializar el carrusel
+    document.addEventListener("mousedown", async (e) => {
+      const target = e.target as Element;
+      if (!target) return;
+
+      const button = target.closest('[data-modal-target="modal-essentia-1-1"]');
+
+      if (button) {
+        console.log("[Essentia 1.1] Inicializando/reiniciando carrusel...");
+        if (!carouselModule) {
+          carouselModule = await carouselModulePromise;
+        }
+        carouselModule.initCarouselSync({
+          carouselId: "essentia-1-1",
+          totalItems: 7,
+          eventName: "essentia-1-1:image-change",
+        });
+        console.log("[Essentia 1.1] Carrusel listo!");
       }
-      carouselModule.initCarouselSync({
-        carouselId: "essentia-1-1",
-        totalItems: 7,
-        eventName: "essentia-1-1:image-change",
-      });
-      console.log("[Essentia 1.1] Carrusel listo!");
-    }
-  });
-</script>
+    });
+  </script>
+</section>

@@ -3,21 +3,25 @@ import { Image } from "astro:assets";
 import EssentiaImage from "@/assets/modelos/essentia/hero-essentia.webp";
 ---
 
-<section class="relative w-full mt-18 h-[calc(730px-6rem)]">
+<section class="relative w-full mt-16 h-[550px] sm:h-[650px] md:h-[730px]">
   <Image
     src={EssentiaImage}
-    alt="Habitat"
+    alt="Essentia"
     class="absolute inset-0 w-full h-full object-cover -z-10 brightness-65"
     loading="eager"
+    width="1920"
+    height="730"
   />
   <div
     class="relative z-10 h-full flex flex-col justify-center items-center text-white"
   >
     <div class="flex flex-col justify-center items-center">
-      <h1 class="text-[8rem] xl:text-[8rem] font brightness-93 tracking-[2rem]">
+      <h1
+        class="text-[2rem] sm:text-[4rem] md:text-[6rem] xl:text-[8rem] font-bold sm:font-normal brightness-93 tracking-[1rem] sm:tracking-[2rem]"
+      >
         ESSENTIA
       </h1>
-      <h2 class="xl:text-2xl max-w-xl">
+      <h2 class="xl:text-2xl max-w-xl sm:text-md md:text-xl sm:text-md text-xs">
         TU CASA PROPIA EN TRES MESES, PARA SIEMPRE
       </h2>
     </div>

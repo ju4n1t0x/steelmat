@@ -1,26 +1,44 @@
 ---
-import {Image} from "astro:assets";
-import EssentiaImage from "@/assets/modelos/essentia/essentia-1.webp"
-
+import { Image } from "astro:assets";
+import EssentiaImage from "@/assets/modelos/essentia/essentia-1.webp";
 ---
 
-<section class="w-full h-full flex py-20 px-40 justify-between">
-  <article class="flex flex-col p-10 gap-5">
-    <div class="flex flex-col items-start w-[385px]">
-      <h2 class="text-4xl text-gray-700 font-bold ">UNA VIVIENDA CON <br/>
-    PROYECCIÓN A FUTURO</h2>
-    </div>
-    <div>
-      <p class="text-md pt-2 leading-[1.7] text-justify text-gray-700 w-[400px] tracking-wide">
-        Un hogar moderno, funcional y adaptable, con opciones de elección de materiales y 
-        una estructura pensada para ampliarse según tus necesidades futuras.
-        Una inversión accesible y <strong>apta para crédito hipotecario,</strong> ESSENTIA es la opción ideal 
-        para empezar con una casa propia, cómoda y con visión de crecimiento.
-      </p>
-    </div>
-    
+<section
+  class="w-full lg:w-[90%] xl:w-full mx-auto min-h-[auto]
+    grid grid-cols-1 lg:grid-cols-2
+    gap-4 lg:gap-6
+    items-center
+    py-10 lg:py-20
+    px-6 md:px-20 lg:px-30 xl:px-40"
+>
+  <!-- Título + Texto (siempre primero) -->
+  <article class="flex flex-col justify-center max-w-md order-1 lg:order-1">
+    <h2
+      class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-700 font-bold"
+    >
+      UNA VIVIENDA CON <br />
+      PROYECCIÓN A FUTURO
+    </h2>
+    <p
+      class="text-xs md:text-sm lg:text-md pt-2 leading-[1.7] text-justify text-gray-700 tracking-wide"
+    >
+      Un hogar moderno, funcional y adaptable, con opciones de elección de
+      materiales y una estructura pensada para ampliarse según tus necesidades
+      futuras. Una inversión accesible y <strong
+        >apta para crédito hipotecario,</strong
+      > ESSENTIA es la opción ideal para empezar con una casa propia, cómoda y con
+      visión de crecimiento.
+    </p>
   </article>
-  <aside class="w-[800px] h-">
-    <Image src={EssentiaImage} alt="Essentia" class="w-full aspect-[16/9] object-fill"/>
+
+  <!-- Imagen (siempre después del texto) -->
+  <aside
+    class="lg:w-full w-[80%] h-[80%] order-2 lg:order-2 justify-self-center lg:justify-self-auto"
+  >
+    <Image
+      src={EssentiaImage}
+      alt="Essentia"
+      class="w-full aspect-[16/9] object-fill"
+    />
   </aside>
 </section>
