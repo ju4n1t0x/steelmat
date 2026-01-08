@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import HeroImage from "@/assets/consultoria-profesionales/consultoria-para-profesionales.webp";
 ---
 
-<section class="relative w-full h-[730px]">
+<section class="relative w-full h-[550px] sm:h-[650px] md:h-[730px]">
   <div class="absolute inset-0 bg-black/50"></div>
   <Image
     src={HeroImage}
@@ -14,22 +14,24 @@ import HeroImage from "@/assets/consultoria-profesionales/consultoria-para-profe
   <div
     class="relative z-10 h-full flex flex-col justify-center gap-4 px-6 md:px-12 text-white"
   >
-    <div class="flex flex-col gap-10 pt-25 px-20">
+    <div
+      class="flex flex-col gap-5 md:gap-10 pt-10 sm:pt-15 md:pt-20 lg:pt-25 px-6 sm:px-10 md:px-15 lg:px-20"
+    >
       <div>
-        <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        <h1 class="text-xl sm:text-3xl md:text-5xl font-bold leading-tight">
           Planificá con precisión.
         </h1>
-        <p class="text-4xl md:text-5xl font-bold leading-tight">
+        <p class="text-xl sm:text-3xl md:text-5xl font-bold leading-tight">
           Construí con confianza.
         </p>
       </div>
-      <p class="text-base md:text-xl max-w-xl">
+      <p class="text-xs sm:text-sm md:text-xl max-w-xl">
         Si sos profesional de la construcción, te ayudamos <br />
         a convertir tus proyectos en SteelFrame
       </p>
       <a
         href="/contacto/"
-        class="mt-3 inline-flex items-center justify-center w-[272px] rounded-lg bg-white/80 px-6 py-3 text-sm font-medium text-black transition-all hover:bg-orange-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-orange-300"
+        class="mt-3 inline-flex items-center justify-center w-[152px] sm:w-[182px] md:w-[232px] lg:w-[272px] rounded-lg bg-white/80 px-4 md:px-6 py-3 text-xs md:text-sm font-medium text-black transition-all hover:bg-orange-700 hover:text-white focus:outline-none focus:ring-4 focus:ring-orange-300"
       >
         Contactanos
       </a>
