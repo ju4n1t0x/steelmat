@@ -1,29 +1,44 @@
 ---
-import {Image} from "astro:assets";
-import HabitatImage from "@/assets/modelos/habitat/habitat-1.webp"
-
+import { Image } from "astro:assets";
+import HabitatImage from "@/assets/modelos/habitat/habitat-1.webp";
 ---
 
-<section class="w-full h-full flex py-20 px-40 justify-between">
-  <article class="flex flex-col p-10 gap-5">
-    <div class="flex flex-col items-start w-[385px]">
-      <h2 class="text-4xl text-gray-700 font-bold ">UNA VIVIENDA SÓLIDA Y <br/>
-    LISTA PARA ACOMPAÑAR <br/>
-TU CRECIMIENTO.</h2>
-    </div>
-    <div>
-      <p class="text-md pt-2 leading-[1.7] text-justify text-gray-700 w-[400px] tracking-wide">
-        Con 80m² cubiertos y 36m² semicubiertos, hábitat ofrece un estar-comedor amplio,
-        cocina sectorizada, toilette, baño completo, dos dormitorios con posibilidad de expansión a tres,
-        y una galería semicubierta con lavadero integrado.
-        Su cochera pasante conecta con los espacios exteriores, integrando practicidad y fluidez en el uso diario.
-        Con terminaciones de primera calidad, iluminación incluida y mobiliario de cocina instalado,
-        HABITAT es más que una casa.
-      </p>
-    </div>
-    
+<section
+  class="w-full lg:w-[90%] xl:w-full mx-auto min-h-[auto]
+    grid grid-cols-1 lg:grid-cols-2
+    gap-4 lg:gap-6
+    items-center
+    py-10 lg:py-20
+    px-6 md:px-20 lg:px-30 xl:px-40"
+>
+  <!-- Título + Texto (siempre primero) -->
+  <article class="flex flex-col justify-center max-w-md order-1 lg:order-1">
+    <h2
+      class="text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-700 font-bold"
+    >
+      UNA VIVIENDA SÓLIDA Y LISTA PARA ACOMPAÑAR TU CRECIMIENTO.
+    </h2>
+    <p
+      class="text-xs md:text-sm lg:text-md pt-2 leading-[1.7] text-justify text-gray-700 tracking-wide"
+    >
+      Con 80m² cubiertos y 36m² semicubiertos, hábitat ofrece un estar-comedor
+      amplio, cocina sectorizada, toilette, baño completo, dos dormitorios con
+      posibilidad de expansión a tres, y una galería semicubierta con lavadero
+      integrado. Su cochera pasante conecta con los espacios exteriores,
+      integrando practicidad y fluidez en el uso diario. Con terminaciones de
+      primera calidad, iluminación incluida y mobiliario de cocina instalado,
+      HABITAT es más que una casa.
+    </p>
   </article>
-  <aside class="w-[800px] h-">
-    <Image src={HabitatImage} alt="Habitat" class="w-full aspect-[16/9] object-fill"/>
+
+  <!-- Imagen (siempre después del texto) -->
+  <aside
+    class="lg:w-full w-[80%] h-[80%] order-2 lg:order-2 justify-self-center lg:justify-self-auto"
+  >
+    <Image
+      src={HabitatImage}
+      alt="Habitat"
+      class="w-full aspect-[16/9] object-fill"
+    />
   </aside>
 </section>
