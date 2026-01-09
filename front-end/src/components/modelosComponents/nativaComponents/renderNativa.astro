@@ -97,7 +97,6 @@ import ModalNativa from "./modal/modalNativa.astro";
       const button = target.closest('[data-modal-target="modal-nativa-1-1"]');
 
       if (button) {
-        console.log("[Nativa 1.1] Inicializando/reiniciando carrusel...");
         if (!carouselModule) {
           carouselModule = await carouselModulePromise;
         }
@@ -106,7 +105,6 @@ import ModalNativa from "./modal/modalNativa.astro";
           totalItems: 4,
           eventName: "nativa-1-1:image-change",
         });
-        console.log("[Nativa 1.1] Carrusel listo!");
       }
     });
   </script>

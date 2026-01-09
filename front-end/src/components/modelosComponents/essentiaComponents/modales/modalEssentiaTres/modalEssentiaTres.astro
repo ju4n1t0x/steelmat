@@ -15,24 +15,18 @@ import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents
   function updateText(index: number) {
     const textEl = document.getElementById("image-text-essentia-1-3");
     if (!textEl) {
-      console.warn("Essentia 1.3: Element #image-text-essentia-1-3 not found");
       return;
     }
 
-    console.log(
-      `Essentia 1.3: Actualizando texto a índice ${index}: ${imageTexts[index]}`
-    );
     textEl.textContent = imageTexts[index] || "Imagen";
   }
 
   // Escuchar cambios de imagen
   document.addEventListener("essentia-1-3:image-change", (e: Event) => {
-    console.log("Essentia 1.3: Evento essentia-1-3:image-change recibido", e);
     const customEvent = e as CustomEvent<{ index: number }>;
     const index = customEvent.detail?.index;
 
     if (typeof index !== "number") {
-      console.warn("Essentia 1.3: Index no es un número", index);
       return;
     }
 
@@ -41,10 +35,8 @@ import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents
 
   // Establecer texto inicial cuando se abre el modal
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("Essentia 1.3: DOMContentLoaded");
     const modal = document.getElementById("modal-essentia-1-3");
     if (!modal) {
-      console.warn("Essentia 1.3: Modal #modal-essentia-1-3 not found");
       return;
     }
 
@@ -52,7 +44,6 @@ import CarrouselEssentia from "@/components/modelosComponents/essentiaComponents
     const observer = new MutationObserver(() => {
       if (!modal.classList.contains("hidden")) {
         // Modal abierto - siempre mostrar texto del índice 0
-        console.log("Essentia 1.3: Modal abierto, reseteando a índice 0");
         updateText(0);
       }
     });

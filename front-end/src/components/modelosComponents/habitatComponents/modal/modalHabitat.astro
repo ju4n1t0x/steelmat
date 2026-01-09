@@ -10,25 +10,19 @@ import CarrouselHabitat from "@/components/modelosComponents/habitatComponents/m
   function updateText(index: number) {
     const textEl = document.getElementById("image-text");
     if (!textEl) {
-      console.warn("Element #image-text not found");
       return;
     }
 
-    console.log(
-      `Habitat: Actualizando texto a índice ${index}: ${imageTexts[index]}`
-    );
     textEl.textContent = imageTexts[index] || "Imagen";
     currentIndex = index;
   }
 
   // Escuchar cambios de imagen
   document.addEventListener("habitat:image-change", (e: Event) => {
-    console.log("Habitat: Evento habitat:image-change recibido", e);
     const customEvent = e as CustomEvent<{ index: number }>;
     const index = customEvent.detail?.index;
 
     if (typeof index !== "number") {
-      console.warn("Habitat: Index no es un número", index);
       return;
     }
 
@@ -37,17 +31,14 @@ import CarrouselHabitat from "@/components/modelosComponents/habitatComponents/m
 
   // Establecer texto inicial cuando se abre el modal
   document.addEventListener("DOMContentLoaded", () => {
-    console.log("Habitat: DOMContentLoaded");
     const modal = document.getElementById("static-modal");
     if (!modal) {
-      console.warn("Habitat: Modal #static-modal not found");
       return;
     }
 
     // Observer para detectar cuando el modal se muestra
     const observer = new MutationObserver(() => {
       if (!modal.classList.contains("hidden")) {
-        console.log("Habitat: Modal abierto, estableciendo texto inicial");
         updateText(currentIndex);
       }
     });

@@ -172,14 +172,11 @@ export class FormHandler {
       this.recaptchaWidgets.set(formId, widgetId);
     }
 
-    console.log(`✅ Formulario "${formId}" configurado correctamente`);
-
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       // Check if already submitting
       if (isSubmitting) {
-        console.log('⏳ Envío en progreso, ignorando...');
         return;
       }
 
@@ -206,9 +203,6 @@ export class FormHandler {
           minute: '2-digit',
         });
 
-        console.log('📋 Datos capturados del formulario:');
-        console.table(data);
-
         // 3. Validate with Zod
         const result = schema.safeParse(data);
 
@@ -217,8 +211,6 @@ export class FormHandler {
           this.showErrors(form, result.error);
           return;
         }
-
-        console.log('✅ Validación exitosa');
 
         // Mark as submitting
         isSubmitting = true;
@@ -231,7 +223,6 @@ export class FormHandler {
           // The callback will handle submission
         } else {
           // No reCAPTCHA configured, submit directly (for development)
-          console.warn('⚠️ reCAPTCHA no configurado, enviando sin verificación');
           await this.submitForm(form, result.data, null, options, submitButton);
           isSubmitting = false;
         }
@@ -256,8 +247,6 @@ export class FormHandler {
       if (recaptchaToken) {
         payload.recaptchaToken = recaptchaToken;
       }
-
-      console.log('📧 Enviando datos al servidor...');
 
       const resp = await fetch('/api/send-email', {
         method: 'POST',

@@ -94,7 +94,6 @@ import ModalEssentiaDos from "@/components/modelosComponents/essentiaComponents/
       const button = target.closest('[data-modal-target="modal-essentia-1-2"]');
 
       if (button) {
-        console.log("[Essentia 1.2] Inicializando/reiniciando carrusel...");
         if (!carouselModule) {
           carouselModule = await carouselModulePromise;
         }
@@ -103,7 +102,6 @@ import ModalEssentiaDos from "@/components/modelosComponents/essentiaComponents/
           totalItems: 6,
           eventName: "essentia-1-2:image-change",
         });
-        console.log("[Essentia 1.2] Carrusel listo!");
       }
     });
   </script>

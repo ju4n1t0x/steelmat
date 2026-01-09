@@ -12,7 +12,6 @@ export function initCarouselSync({
   carouselStates.set(carouselId, { currentIndex: 0 });
 
   function notifyChange(index) {
-    console.log(`[${carouselId}] Disparando evento ${eventName} con index ${index}`);
     document.dispatchEvent(
       new CustomEvent(eventName, {
         detail: { index, carouselId }
@@ -42,13 +41,11 @@ export function initCarouselSync({
 
     if (target.closest("[data-carousel-next]")) {
       state.currentIndex = (state.currentIndex + 1) % totalItems;
-      console.log(`[${carouselId}] Click NEXT - nuevo index: ${state.currentIndex}`);
       notifyChange(state.currentIndex);
     }
 
     if (target.closest("[data-carousel-prev]")) {
       state.currentIndex = (state.currentIndex - 1 + totalItems) % totalItems;
-      console.log(`[${carouselId}] Click PREV - nuevo index: ${state.currentIndex}`);
       notifyChange(state.currentIndex);
     }
   };

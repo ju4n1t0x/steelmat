@@ -92,7 +92,6 @@ import ModalHabitat from "@/components/modelosComponents/habitatComponents/modal
       const button = target.closest('[data-modal-target="static-modal"]');
 
       if (button) {
-        console.log("[Habitat] Inicializando/reiniciando carrusel...");
         if (!carouselModule) {
           carouselModule = await carouselModulePromise;
         }
@@ -101,7 +100,6 @@ import ModalHabitat from "@/components/modelosComponents/habitatComponents/modal
           totalItems: 3,
           eventName: "habitat:image-change",
         });
-        console.log("[Habitat] Carrusel listo!");
       }
     });
   </script>
