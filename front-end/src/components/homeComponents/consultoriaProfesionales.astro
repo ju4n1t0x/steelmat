@@ -4,15 +4,16 @@ import { Picture } from "astro:assets";
 import ProyectosAmedida from "@/assets/home/proyectosAmedida.webp";
 ---
 
-<section class="pb-5">
+<section class="pb-5 w-full">
   <article class="flex justify-center w-full h-full relative">
     <div class="absolute inset-0 bg-black/50"></div>
     <Picture
       src={ProyectosAmedida}
       alt="Proyectos a medida"
-      formats={['avif', 'webp']}
+      formats={["avif", "webp"]}
       loading="lazy"
       class="w-full h-full object-cover"
+      pictureAttributes={{ class: "w-full h-full" }}
     />
     <!-- Contenedor flex para organizar el contenido verticalmente -->
     <div
