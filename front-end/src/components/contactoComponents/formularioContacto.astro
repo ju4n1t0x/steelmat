@@ -87,7 +87,12 @@ import ModalFormularios from "../modalFormularios.astro";
 
       <!-- Columna derecha -->
       <div class="pt-20 space-y-6">
-        <Image src={ContactoImagen} alt="Steelmat" class="mb-8" />
+        <Image
+          src={ContactoImagen}
+          alt="Steelmat"
+          class="mb-8"
+          loading="eager"
+        />
 
         <div class="text-gray-700 space-y-2">
           <p>1 Junta 2644, Santa Fe</p>
