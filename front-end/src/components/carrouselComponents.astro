@@ -17,6 +17,8 @@ interface Props {
   carouselId?: string;
   quality?: "low" | "mid" | "high" | "max";
   format?: "avif" | "webp" | "png" | "jpg" | "jpeg";
+  widths?: number[];
+  sizes?: string;
 }
 
 const {
@@ -31,8 +33,10 @@ const {
   aspectRatio,
   imgClass = "object-cover",
   carouselId = "carousel",
-  quality = "high",
-  format = "avif",
+  quality = "mid",
+  format = "webp",
+  widths = [640, 828, 1080, 1200, 1920],
+  sizes = "(max-width: 768px) 100vw, 80vw",
 } = Astro.props as Props;
 
 const isAsset = (v: unknown) => typeof v !== "string";
@@ -68,6 +72,9 @@ const containerStyle = styleParts.join(";");
                 alt={it.alt ?? ""}
                 format={format}
                 quality={quality}
+                widths={widths}
+                sizes={sizes}
+                decoding="async"
                 class={`absolute block w-full h-full ${imgClass} -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2`}
                 loading={i === initialIndex ? "eager" : "lazy"}
               />

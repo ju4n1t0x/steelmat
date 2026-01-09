@@ -9,9 +9,15 @@ export default defineConfig({
   integrations: [sitemap()],
   output: 'server',
   adapter: vercel({
+    imageService: true, // Habilitar Vercel Image Optimization
     isReserializable: true,
   }),
-  
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+  },
+
   vite: {
     server: {
       allowedHosts: [
