@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import RenderNativaImage from "@/assets/modelos/nativa/render-nativa.webp";
 import ModalNativa from "./modal/modalNativa.astro";
 ---
@@ -52,9 +52,10 @@ import ModalNativa from "./modal/modalNativa.astro";
 
   <!-- Imagen - order-2 en todas las resoluciones -->
   <aside class="w-full order-2 md:order-2">
-    <Image
+    <Picture
       src={RenderNativaImage}
       alt="Nativa 1.1 - Render Interior"
+      formats={['avif', 'webp']}
       class="w-full h-auto"
       loading="lazy"
     />

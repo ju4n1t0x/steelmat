@@ -1,6 +1,6 @@
 ---
 import ModalObraGris from "./modalObraGris.astro";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import ObraGris1 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-1.webp";
 ---
 
@@ -54,9 +54,10 @@ import ObraGris1 from "@/assets/por-que-elegirnos/obra-gris/obra-gris-1.webp";
   <!-- Imagen con botón de modal -->
   <aside class="w-full order-3 relative">
     <div class="relative w-full aspect-[800/550] rounded-lg overflow-hidden">
-      <Image
+      <Picture
         src={ObraGris1}
         alt="Obra Gris"
+        formats={['avif', 'webp']}
         class="block w-full h-full object-cover rounded-lg"
         loading="lazy"
       />

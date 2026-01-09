@@ -1,12 +1,13 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import HeroImage from "@/assets/home/SteelMat-hero.webp";
 ---
 
 <section class="relative w-full h-[550px] sm:h-[650px] md:h-[730px]">
-  <Image
+  <Picture
     src={HeroImage}
     alt="Consultoria para profesionales"
+    formats={['avif', 'webp']}
     loading="eager"
     fetchpriority="high"
     widths={[640, 750, 828, 1080, 1200, 1920]}

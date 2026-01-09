@@ -1,12 +1,13 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import ModelosImage from "@/assets/modelos/modelos.webp";
 ---
 
 <section class="relative w-full h-[550px] sm:h-[650px] md:h-[730px]">
-  <Image
+  <Picture
     src={ModelosImage}
     alt="Modelos"
+    formats={['avif', 'webp']}
     class="absolute inset-0 w-full h-full object-cover -z-10"
     loading="eager"
     fetchpriority="high"

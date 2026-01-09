@@ -1,12 +1,13 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import HabitatImage from "@/assets/modelos/habitat/habitat-hero.webp";
 ---
 
 <section class="relative w-full mt-16 h-[550px] sm:h-[650px] md:h-[730px]">
-  <Image
+  <Picture
     src={HabitatImage}
     alt="Habitat"
+    formats={['avif', 'webp']}
     class="absolute inset-0 w-full h-full object-cover -z-10 brightness-65"
     loading="eager"
     fetchpriority="high"

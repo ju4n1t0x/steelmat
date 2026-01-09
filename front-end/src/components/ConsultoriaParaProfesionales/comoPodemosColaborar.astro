@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import ComoPodemosColaborarImage from "@/assets/consultoria-profesionales/como-podemos-colaborar.webp";
 ---
 
@@ -51,9 +51,10 @@ import ComoPodemosColaborarImage from "@/assets/consultoria-profesionales/como-p
   <aside
     class="w-full order-2 md:order-2 md:pl-10 min-h-[350px] md:min-h-[350px] lg:min-h-[400px] px-5 lg:px0"
   >
-    <Image
+    <Picture
       src={ComoPodemosColaborarImage}
       alt="Cómo podemos colaborar"
+      formats={['avif', 'webp']}
       loading="eager"
       class="w-full h-full object-cover shadow-sm hover:drop-shadow-md transition-shadow duration-200"
     />

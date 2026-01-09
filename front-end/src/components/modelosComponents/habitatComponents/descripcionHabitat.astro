@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import HabitatImage from "@/assets/modelos/habitat/habitat-1.webp";
 ---
 
@@ -35,9 +35,10 @@ import HabitatImage from "@/assets/modelos/habitat/habitat-1.webp";
   <aside
     class="lg:w-full w-[80%] h-[80%] order-2 lg:order-2 justify-self-center lg:justify-self-auto"
   >
-    <Image
+    <Picture
       src={HabitatImage}
       alt="Habitat"
+      formats={['avif', 'webp']}
       class="w-full aspect-[16/9] object-fill"
       loading="eager"
     />

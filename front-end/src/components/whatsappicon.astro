@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import WhatsappIconImg from "@/assets/icons/whatsapp.webp";
 ---
 
@@ -10,9 +10,10 @@ import WhatsappIconImg from "@/assets/icons/whatsapp.webp";
   class={`whatsapp-link-selector fixed transition-all duration-500 ease-in-out`}
   style="z-index: 99999; right: 1rem; opacity: 0;"
 >
-  <Image
+  <Picture
     src={WhatsappIconImg}
     alt="WhatsApp"
+    formats={['avif', 'webp']}
     width={48}
     height={48}
     loading="lazy"

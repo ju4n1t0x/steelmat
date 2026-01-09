@@ -1,12 +1,13 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import NativaImage from "@/assets/modelos/nativa/nativa-hero.webp";
 ---
 
 <section class="relative w-full mt-16 h-[550px] sm:h-[650px] md:h-[730px]">
-  <Image
+  <Picture
     src={NativaImage}
     alt="Nativa"
+    formats={['avif', 'webp']}
     class="absolute inset-0 w-full h-full -z-10 brightness-45"
     loading="eager"
     fetchpriority="high"

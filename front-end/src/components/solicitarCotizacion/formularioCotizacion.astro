@@ -21,6 +21,7 @@ import ModalFormularios from "../modalFormularios.astro";
     <form
       id="form-cotizacion"
       class="w-full max-w-[1400px] mx-auto flex flex-col md:flex-row flex-wrap pt-20"
+      data-recaptcha-site-key={import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY}
     >
       <div
         class="md:mb-6 flex-1 min-w-[40%] px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40"

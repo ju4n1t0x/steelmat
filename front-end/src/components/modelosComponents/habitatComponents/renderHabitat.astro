@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import RenderHabitatImage from "@/assets/modelos/habitat/render-habitat.webp";
 import ModalHabitat from "@/components/modelosComponents/habitatComponents/modal/modalHabitat.astro";
 ---
@@ -53,7 +53,7 @@ import ModalHabitat from "@/components/modelosComponents/habitatComponents/modal
 
   <!-- Imagen - order-2 en todas las resoluciones -->
   <aside class="w-full order-2 md:order-2">
-    <Image src={RenderHabitatImage} alt="Habitat" class="w-full h-auto" />
+    <Picture src={RenderHabitatImage} alt="Habitat" formats={['avif', 'webp']} class="w-full h-auto" />
   </aside>
 
   <!-- Botón - solo visible en < md (después de la imagen, alineado izquierda) -->

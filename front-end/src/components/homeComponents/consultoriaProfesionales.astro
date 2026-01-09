@@ -1,17 +1,18 @@
 ---
 import DescubrirMas from "./descubrirMas.astro";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import ProyectosAmedida from "@/assets/home/proyectosAmedida.webp";
 ---
 
 <section class="pb-5">
   <article class="flex justify-center w-full h-full relative">
     <div class="absolute inset-0 bg-black/50"></div>
-    <Image
-      loading="lazy"
-      class="w-full h-full object-cover"
+    <Picture
       src={ProyectosAmedida}
       alt="Proyectos a medida"
+      formats={['avif', 'webp']}
+      loading="lazy"
+      class="w-full h-full object-cover"
     />
     <!-- Contenedor flex para organizar el contenido verticalmente -->
     <div

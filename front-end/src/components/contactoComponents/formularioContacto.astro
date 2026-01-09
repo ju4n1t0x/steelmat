@@ -25,7 +25,7 @@ import ModalFormularios from "../modalFormularios.astro";
     >
       <!-- Columna izquierda -->
       <div>
-        <form id="form-capacitaciones" class="w-full space-y-12">
+        <form id="form-capacitaciones" class="w-full space-y-12" data-recaptcha-site-key={import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY}>
           <div>
             <label
               for="nombreApellido"

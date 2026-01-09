@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 
 type CarouselItem = { src: ImageMetadata | string; alt?: string };
 
@@ -16,7 +16,6 @@ interface Props {
   imgClass?: string;
   carouselId?: string;
   quality?: "low" | "mid" | "high" | "max";
-  format?: "avif" | "webp" | "png" | "jpg" | "jpeg";
   widths?: number[];
   sizes?: string;
 }
@@ -34,7 +33,6 @@ const {
   imgClass = "object-cover",
   carouselId = "carousel",
   quality = "mid",
-  format = "webp",
   widths = [640, 828, 1080, 1200, 1920],
   sizes = "(max-width: 768px) 100vw, 80vw",
 } = Astro.props as Props;
@@ -67,10 +65,10 @@ const containerStyle = styleParts.join(";");
             data-carousel-item={i === initialIndex ? "active" : true}
           >
             {isAsset(it.src) ? (
-              <Image
+              <Picture
                 src={it.src as ImageMetadata}
                 alt={it.alt ?? ""}
-                format={format}
+                formats={['avif', 'webp']}
                 quality={quality}
                 widths={widths}
                 sizes={sizes}

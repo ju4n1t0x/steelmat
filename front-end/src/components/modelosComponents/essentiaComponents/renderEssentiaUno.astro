@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import RenderEssentiaImage from "@/assets/modelos/essentia/render-essentia-1.webp";
 import ModalEssentiaUno from "./modales/modalEssentiaUno/modalEssentiaUno.astro";
 ---
@@ -53,9 +53,10 @@ import ModalEssentiaUno from "./modales/modalEssentiaUno/modalEssentiaUno.astro"
 
   <!-- Imagen - order-2 en todas las resoluciones -->
   <aside class="w-full order-2 md:order-2">
-    <Image
+    <Picture
       src={RenderEssentiaImage}
       alt="Essentia"
+      formats={['avif', 'webp']}
       class="w-full h-auto"
       loading="lazy"
     />

@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import RenderEssentiaImage from "@/assets/modelos/essentia/render-essentia-2.webp";
 import ModalEssentiaDos from "@/components/modelosComponents/essentiaComponents/modales/modalEssentiaDos/modalEssentiaDos.astro";
 ---
@@ -55,7 +55,7 @@ import ModalEssentiaDos from "@/components/modelosComponents/essentiaComponents/
 
   <!-- Imagen - order-2 en todas las resoluciones -->
   <aside class="w-full order-2 md:order-2">
-    <Image src={RenderEssentiaImage} alt="Essentia" class="w-full h-auto" />
+    <Picture src={RenderEssentiaImage} alt="Essentia" formats={['avif', 'webp']} class="w-full h-auto" />
   </aside>
 
   <!-- Botón - solo visible en < md (después de la imagen, alineado izquierda) -->
