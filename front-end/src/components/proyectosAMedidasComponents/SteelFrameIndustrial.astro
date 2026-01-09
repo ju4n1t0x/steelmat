@@ -1,42 +1,78 @@
 ---
-import { Image } from "astro:assets";
 import CarrouselSteelIndustrial from "@/components/proyectosAMedidasComponents/carrousel/carrouselSteelIndustrial.astro";
 ---
 
-<section class="w-full h-full flex pt-25 pb-20 px-40 justify-between">
-  <article class="flex flex-col p-10 gap-10 w-[400px]">
-    <div class="flex items-center gap-2">
-      <svg class="h-[70px] w-[60px] fill-gray-600"
-        ><use href="/icons/sprite.svg#steel-industrial"></use>
+<section
+  class="w-full mx-auto
+    grid grid-cols-1 lg:grid-cols-[1fr_2fr]
+    gap-6 md:gap-10
+    items-start
+    py-10 md:py-15 lg:py-20
+    px-6 md:px-20 lg:px-40"
+>
+  <!-- Título y texto - order-1 -->
+  <article class="flex flex-col gap-5 order-1">
+    <div class="flex items-center gap-2 pt-10">
+      <svg
+        class="h-10 w-10 sm:h-12 sm:w-12 md:h-[60px] md:w-[50px] lg:h-[70px] lg:w-[60px] fill-gray-600"
+      >
+        <use href="/icons/sprite.svg#steel-industrial"></use>
       </svg>
-      <h2 class="text-3xl pl-5 text-gray-600">
+      <h2
+        class="text-xl sm:text-2xl md:text-2xl lg:text-3xl pl-3 md:pl-5 text-gray-600"
+      >
         Steel Frame <br /> Empresas
       </h2>
     </div>
-    <div class="w-[300px]">
-      <p class="text-lg leading-[1.7] font-bold text-justify pb-2">
+    <div class="pt-3 md:pt-5">
+      <p
+        class="text-sm md:text-base lg:text-lg leading-[1.7] font-bold text-justify pb-2"
+      >
         Ofrecemos soluciones en Steel Frame para empresas, desarrolladores y
         proyectos industriales.
       </p>
-      <p class="text-md pt-2 leading-[1.7] text-justify pb-2">
+      <p
+        class="text-xs md:text-sm lg:text-md pt-2 leading-[1.7] text-justify pb-2"
+      >
         Construcciones eficientes y escalables con materiales de calidad
         garantizada
       </p>
-      <ul class="list-disc list-inside text-md pl-5 leading-[1.7] text-justify">
+      <ul
+        class="list-disc list-inside text-xs md:text-sm lg:text-md pl-3 md:pl-5 leading-[1.7] text-justify"
+      >
         <li class="pb-2">
           Infraestructura optimizada para proyectos comerciales e industriales.
         </li>
-        <li class="">Reducción de tiempos de ejecución</li>
+        <li>Reducción de tiempos de ejecución</li>
       </ul>
-      <a href="/contacto/" class="flex py-12 hover:underline text-[#545151]">
+      <!-- Link solo visible en desktop -->
+      <a
+        href="/contacto/"
+        class="hidden md:flex items-center pt-5 lg:pt-10 hover:underline text-[#545151] text-xs sm:text-sm md:text-md"
+      >
         Agendar una reunión
-        <svg class="w-5 h-5 ml-2 mt-0.5" fill="#545151">
+        <svg class="w-5 h-5 ml-2" fill="#545151">
           <use href="/icons/sprite.svg#flecha-icon"></use>
         </svg>
       </a>
     </div>
   </article>
-  <aside class="w-[800px]">
+
+  <!-- Carrousel - order-2 -->
+  <aside class="w-full order-2">
     <CarrouselSteelIndustrial />
   </aside>
+
+  <!-- Link solo visible en móvil (centrado) - order-3 -->
+  <div class="flex md:hidden justify-center order-3 pt-4">
+    <a
+      href="/contacto/"
+      class="flex items-center hover:underline text-[#545151] text-xs sm:text-sm md:text-md"
+    >
+      Agendar una reunión
+      <svg class="w-5 h-5 ml-2 mt-0.5" fill="#545151">
+        <use href="/icons/sprite.svg#flecha-icon"></use>
+      </svg>
+    </a>
+  </div>
 </section>

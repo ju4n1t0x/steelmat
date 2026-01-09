@@ -3,28 +3,37 @@
 ---
 
 <section
-  class="relative w-full min-h-screen flex flex-col items-center pt-32 pb-20"
+  class="relative w-full min-h-[80vh] md:min-h-screen flex flex-col items-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-20"
 >
   <div class="flex flex-col items-center w-full px-6">
     <div class="flex flex-col justify-center items-center text-[#545151] pt-10">
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-center">
+      <h1
+        class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold leading-tight text-center"
+      >
         ¿Cómo es la vivienda<br />de tus sueños?
       </h1>
       <h2
-        class="text-sm md:text-base leading-tight text-center pt-5 text-gray-500"
+        class="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-tight text-center pt-5 text-gray-500"
       >
         Elegí la opción que mas te interesa
       </h2>
     </div>
 
-    <div class="flex flex-col w-[700px] w-max-[700px] h-auto pt-12">
+    <div
+      class="flex flex-col w-full max-w-[90%] sm:max-w-[80%] md:max-w-[60%] xl:max-w-[50%] h-auto pt-12"
+    >
       <!--Llave en mano -->
-      <div class="llave-en-mano pt-20">
+      <div class="llave-en-mano pt-10 sm:pt-14 md:pt-20">
         <div class="flex flex-row items-center gap-3 text-gray-600">
-          <svg viewBox="0 0 33 33" class="w-12 h-12">
+          <svg
+            viewBox="0 0 33 33"
+            class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
+          >
             <use href="/icons/sprite.svg?v=2#llaveEnMano"></use>
           </svg>
-          <h3 class="text-xl font-semibold">Llave en mano</h3>
+          <h3 class="text-sm sm:text-base md:text-lg font-semibold">
+            Llave en mano
+          </h3>
         </div>
         <!--Modelo Habitat-->
         <a
@@ -32,12 +41,16 @@
           class="flex items-center justify-between pt-6 mt-2 pb-4 border-b border-gray-200 hover:bg-gray-100"
         >
           <div class="flex flex-col">
-            <h4 class="text-md font-semibold text-gray-700">Modelo HÁBITAT</h4>
-            <p class="text-sm text-gray-500">
+            <h4
+              class="text-xs sm:text-sm lg:text-md font-semibold text-gray-700"
+            >
+              Modelo HÁBITAT
+            </h4>
+            <p class="text-xs md:text-sm text-gray-500">
               Amplitud, diseño funcional y confort de alto nivel
             </p>
           </div>
-          <svg class="w-8 h-8 text-gray-500">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 text-gray-500">
             <use href="/icons/sprite.svg?v=7#flechaDerecha"></use>
           </svg>
         </a>
@@ -47,10 +60,16 @@
           class="flex items-center justify-between pt-6 pb-4 border-b border-gray-200 hover:bg-gray-100"
         >
           <div class="flex flex-col">
-            <h4 class="text-md font-semibold text-gray-700">Modelo ESSENTIA</h4>
-            <p class="text-sm text-gray-500">Calidad, diseño y rápidez</p>
+            <h4
+              class="text-xs sm:text-sm lg:text-md font-semibold text-gray-700"
+            >
+              Modelo ESSENTIA
+            </h4>
+            <p class="text-xs md:text-sm text-gray-500">
+              Calidad, diseño y rápidez
+            </p>
           </div>
-          <svg class="w-8 h-8 text-gray-500">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 text-gray-500">
             <use href="/icons/sprite.svg?v=7#flechaDerecha"></use>
           </svg>
         </a>
@@ -60,25 +79,34 @@
           class="flex items-center justify-between pt-6 pb-4 border-b border-gray-200 hover:bg-gray-100"
         >
           <div class="flex flex-col">
-            <h4 class="text-md font-semibold text-gray-700">Modelo NATIVA</h4>
-            <p class="text-sm text-gray-500">
+            <h4
+              class="text-xs sm:text-sm lg:text-md font-semibold text-gray-700"
+            >
+              Modelo NATIVA
+            </h4>
+            <p class="text-xs md:text-sm text-gray-500">
               Funcional, cercano, simple pero con identidad
             </p>
           </div>
-          <svg class="w-8 h-8 text-gray-500">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 text-gray-500">
             <use href="/icons/sprite.svg?v=7#flechaDerecha"></use>
           </svg>
         </a>
       </div>
 
       <!--Diseño personalizado -->
-      <div class="proyectos-a-medida pt-20">
+      <div class="proyectos-a-medida pt-10 sm:pt-14 md:pt-20">
         <div class="flex flex-row items-center gap-3 text-gray-600">
-          <svg viewBox="0 0 33 33" class="w-10 h-10">
+          <svg
+            viewBox="0 0 33 33"
+            class="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10"
+          >
             <use href="/icons/sprite.svg#construccion-icon" fill="#545151"
             ></use>
           </svg>
-          <h3 class="text-lg font-semibold">Diseño personalizado</h3>
+          <h3 class="text-sm sm:text-base md:text-lg font-semibold">
+            Diseño personalizado
+          </h3>
         </div>
         <!--Modelo proyectos a medida-->
         <a
@@ -86,14 +114,16 @@
           class="flex items-center justify-between pt-6 mt-2 pb-4 border-b border-gray-200 hover:bg-gray-100"
         >
           <div class="flex flex-col">
-            <h4 class="text-md font-semibold text-gray-700">
+            <h4
+              class="text-xs sm:text-sm lg:text-md font-semibold text-gray-700"
+            >
               Proyectos a medida
             </h4>
-            <p class="text-sm text-gray-500">
+            <p class="text-xs md:text-sm text-gray-500">
               Diseñamos juntos el proyecto que tenes pensado
             </p>
           </div>
-          <svg class="w-8 h-8 text-gray-500">
+          <svg class="w-6 h-6 sm:w-8 sm:h-8 text-gray-500">
             <use href="/icons/sprite.svg?v=7#flechaDerecha"></use>
           </svg>
         </a>

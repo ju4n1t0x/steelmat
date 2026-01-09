@@ -2,29 +2,62 @@
 import CarrouselProyectosAMedida from "@/components/proyectosAMedidasComponents/carrousel/carrouselSteelHome.astro";
 ---
 
-<section class="w-full h-full flex pt-20 pb-20 px-40 justify-between">
-  <article class="flex flex-col p-10 gap-10">
-    <div class="flex items-center gap-2 w-[400px]">
-      <h2 class="text-4xl text-gray-600">
+<section
+  class="w-full mx-auto
+    grid grid-cols-1 lg:grid-cols-[1fr_2fr]
+    gap-6 md:gap-10
+    items-start
+    py-10 md:py-15 lg:py-20
+    px-6 md:px-20 lg:px-40"
+>
+  <!-- Título y texto - order-1 -->
+  <article class="flex flex-col gap-5 order-1">
+    <div class="flex items-start pt-10">
+      <h2
+        class="text-md sm:text-lg md:text-2xl lg:text-2xl xl:text-3xl text-gray-700"
+      >
         ¿Tenés una construcción en mente?
         <br /> en SteelMat lo hacemos realidad.
       </h2>
     </div>
-    <div class="w-[400px] pt-5">
-      <span class="text-lg leading-[1.7]">¿Qué hacemos?</span>
-      <p class="text-lg leading-[1.7] font-bold text-justify">
+    <div class="pt-3 md:pt-5">
+      <span class="text-md lg:text-lg leading-[1.7] text-gray-600"
+        >¿Qué hacemos?</span
+      >
+      <p
+        class="text-sm lg:text-md leading-[1.7] font-bold text-justify pt-3 text-gray-600"
+      >
         Diseñamos y adaptamos cada proyecto a tus necesidades, garantizando
         eficiencia, calidad y confort.
       </p>
-      <a href="/contacto/" class="flex py-15 hover:underline text-[#545151]">
+      <!-- Link solo visible en desktop -->
+      <a
+        href="/contacto/"
+        class="hidden md:flex items-center pt-5 lg:pt-10 hover:underline text-[#545151] text-xs sm:text-sm md:text-md"
+      >
         Agendar una reunión
         <svg class="w-5 h-5 ml-2">
-          <use href="/icons/sprite.svg#flecha-icon"></use>
+          <use href="/icons/sprite.svg#flecha-icon" fill="#545151"></use>
         </svg>
       </a>
     </div>
   </article>
-  <aside class="w-[800px]">
+
+  <!-- Carrousel - order-2 -->
+  <aside class="w-full order-2">
     <CarrouselProyectosAMedida />
   </aside>
+
+  <!-- Link solo visible en móvil (centrado) - order-3 -->
+  <div class="flex md:hidden justify-center order-3 pt-4">
+    <a
+      href="/contacto/"
+      class="flex items-center hover:underline text-[#545151] text-xs sm:text-sm md:text-md"
+    >
+      Agendar una reunión
+      <svg class="w-5 h-5 ml-2">
+        <use href="/icons/sprite.svg#flecha-icon" fill="#545151"></use>
+      </svg>
+    </a>
+  </div>
 </section>
